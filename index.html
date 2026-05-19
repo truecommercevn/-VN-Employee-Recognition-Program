@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VN Employee Recognition Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1f44;
+    --navy-mid: #12306b;
+    --blue: #1a4fae;
+    --blue-light: #e8eef8;
+    --gold: #f0a800;
+    --gold-light: #fff8e6;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --white: #ffffff;
+    --bg: #f4f6fb;
+    --tag-own: #e0f0ff;
+    --tag-own-c: #1a5faf;
+    --tag-col: #e6f9f0;
+    --tag-col-c: #0d7a50;
+    --tag-inn: #fff3e0;
+    --tag-inn-c: #b45000;
+    --tag-cus: #fce4f6;
+    --tag-cus-c: #8b1a7e;
+    --radius: 12px;
+    --shadow: 0 2px 16px rgba(10,31,68,.08);
+    --shadow-lg: 0 8px 32px rgba(10,31,68,.13);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(110deg, #071630 0%, #0e2d6e 50%, #163d8a 100%);
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    padding: 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(240,168,0,.13) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-dots {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .hero-content { flex: 1; position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; line-height: 1.1;
+    color: #fff; letter-spacing: -.01em;
+    text-shadow: 0 2px 20px rgba(0,0,0,.3);
+    white-space: pre-line;
+  }
+  .hero-accent { display: block; width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0; }
+  .hero p { color: rgba(255,255,255,.82); font-size: 1rem; max-width: 480px; line-height: 1.6; }
+  .trophy-placeholder {
+    width: 180px; height: 180px; flex-shrink: 0; position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .trophy-svg { width: 160px; height: 160px; filter: drop-shadow(0 8px 32px rgba(240,168,0,.4)); }
+
+  /* MAIN */
+  .main { max-width: 1500px; margin: 0 auto; padding: 40px 32px; display: flex; flex-direction: column; gap: 32px; }
+
+  .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; animation: fadeUp .5s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+  .sec-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .sec-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sec-icon svg { width: 24px; height: 24px; color: #fff; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+  .sec-sub { font-size: .875rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+  .rewards { display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+  .reward-pill { display: flex; align-items: center; gap: 10px; background: var(--blue-light); border-radius: 8px; padding: 10px 18px; }
+  .reward-pill svg { width: 22px; height: 22px; color: var(--blue); flex-shrink: 0; }
+  .reward-amount { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+  .reward-label { font-size: .75rem; color: var(--muted); }
+
+  .tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab { padding: 8px 20px; border-radius: 6px; font-size: .875rem; font-weight: 500; cursor: pointer; border: none; background: #eef1f7; color: var(--muted); transition: all .18s; user-select: none; }
+  .tab.active { background: var(--navy); color: #fff; }
+  .tab:hover:not(.active) { background: #d8dde7; color: var(--navy); }
+
+  .emp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px; }
+  .emp-card { background: var(--bg); border-radius: 10px; padding: 16px 12px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; }
+  .emp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+  .emp-avatar-placeholder { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); border: 2.5px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.12); }
+  .emp-name { font-size: .825rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .emp-role { font-size: .7rem; color: var(--muted); margin-bottom: 2px; }
+  .emp-dept { font-size: .68rem; color: var(--blue); font-weight: 500; }
+  .note { font-size: .75rem; color: var(--muted); margin-top: 16px; display: flex; align-items: center; gap: 6px; }
+  .note svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  .empty-state { grid-column: 1 / -1; text-align: center; padding: 48px 24px; color: var(--muted); background: var(--bg); border-radius: 10px; border: 1.5px dashed var(--border); }
+  .empty-state-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .empty-state-sub { font-size: .85rem; }
+
+  .mover-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .mover-card { background: var(--bg); border-radius: 10px; padding: 20px; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; }
+  .mover-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+  .mover-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .mover-avatar-placeholder { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); border: 2px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.1); }
+  .mover-name { font-size: .9rem; font-weight: 600; color: var(--navy); }
+  .mover-role { font-size: .72rem; color: var(--muted); }
+  .mover-dept { font-size: .72rem; color: var(--blue); font-weight: 500; margin-top: 1px; }
+  .value-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .7rem; font-weight: 600; margin-bottom: 10px; }
+  .tag-own { background: var(--tag-own); color: var(--tag-own-c); }
+  .tag-col { background: var(--tag-col); color: var(--tag-col-c); }
+  .tag-inn { background: var(--tag-inn); color: var(--tag-inn-c); }
+  .tag-cus { background: var(--tag-cus); color: var(--tag-cus-c); }
+  .mover-desc { font-size: .78rem; color: #4b5563; line-height: 1.55; }
+
+  .values-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .values-label { font-size: .8rem; font-weight: 600; color: var(--muted); }
+  .val-chip { display: flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; font-size: .78rem; font-weight: 500; background: var(--blue-light); color: var(--navy); }
+  .val-chip svg { width: 14px; height: 14px; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+  .value-card { background: var(--bg); border-radius: 10px; padding: 24px 16px; text-align: center; border: 1.5px solid var(--border); transition: border-color .18s, transform .18s; }
+  .value-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .value-icon-wrap { width: 52px; height: 52px; border-radius: 14px; background: var(--navy); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
+  .value-icon-wrap svg { width: 26px; height: 26px; color: #fff; fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .value-name { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .value-def { font-size: .78rem; color: #4b5563; line-height: 1.5; }
+
+  .years-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 32px; }
+  .years-header { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .years-info { display: flex; align-items: center; gap: 12px; flex: 1; }
+  .years-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .years-icon svg { width: 20px; height: 20px; color: #fff; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .years-title { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .years-sub { font-size: .78rem; color: var(--muted); }
+  .year-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .year-tab { padding: 7px 22px; border-radius: 6px; font-size: .875rem; font-weight: 600; cursor: pointer; border: none; }
+  .year-tab.active { background: var(--navy); color: #fff; }
+  .year-tab:not(.active) { background: #eef1f7; color: var(--muted); }
+  .year-tab.empty { opacity: .55; cursor: default; }
+
+  .footer-banner { background: linear-gradient(110deg, #071630 0%, #0e2d6e 100%); border-radius: var(--radius); padding: 40px 40px; text-align: center; position: relative; overflow: hidden; }
+  .footer-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(240,168,0,.1) 0%, transparent 70%); }
+  .footer-banner p { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #fff; position: relative; z-index: 1; line-height: 1.4; }
+  .footer-banner span { color: var(--gold); }
+
+  .proficiency-section { margin-top: 8px; }
+  .prof-header { margin-bottom: 20px; }
+  .prof-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+  .prof-sub { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+  .prof-track { display: flex; align-items: center; gap: 0; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; }
+  .prof-level { flex: 1; text-align: center; position: relative; }
+  .prof-level:not(:last-child)::after { content: ''; position: absolute; top: 26px; right: -50%; width: 100%; height: 3px; background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 100%); z-index: 0; }
+  .prof-circle { width: 52px; height: 52px; border-radius: 50%; background: var(--navy); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; box-shadow: 0 0 0 4px var(--blue-light); }
+  .prof-circle svg { width: 26px; height: 26px; color: #fff; fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .prof-name { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .prof-desc { font-size: .75rem; color: var(--muted); line-height: 1.5; max-width: 140px; margin: 0 auto; }
+
+  .av-1 { background: linear-gradient(135deg, #f5cba7, #e59866); }
+  .av-2 { background: linear-gradient(135deg, #aed6f1, #5dade2); }
+  .av-3 { background: linear-gradient(135deg, #a9dfbf, #27ae60); }
+  .av-4 { background: linear-gradient(135deg, #d7bde2, #8e44ad); }
+  .av-5 { background: linear-gradient(135deg, #fad7a0, #f39c12); }
+  .av-6 { background: linear-gradient(135deg, #fadbd8, #e74c3c); }
+  .av-7 { background: linear-gradient(135deg, #d5dbdb, #95a5a6); }
+  .av-8 { background: linear-gradient(135deg, #a9cce3, #2980b9); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <h1 id="hero-title"></h1>
+    <span class="hero-accent"></span>
+    <p id="hero-desc"></p>
+  </div>
+  <div class="trophy-placeholder">
+    <svg class="trophy-svg" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M45 30 Q40 90 80 110 Q120 90 115 30 Z" fill="url(#gold1)" stroke="#c8860a" stroke-width="1.5"/>
+      <path d="M45 45 Q22 45 22 72 Q22 88 38 90" fill="none" stroke="url(#gold2)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M115 45 Q138 45 138 72 Q138 88 122 90" fill="none" stroke="url(#gold2)" stroke-width="6" stroke-linecap="round"/>
+      <polygon points="80,48 85,63 100,63 88,73 92,88 80,78 68,88 72,73 60,63 75,63" fill="#fffbe0" opacity=".9"/>
+      <rect x="73" y="110" width="14" height="26" fill="url(#gold1)" rx="3"/>
+      <rect x="52" y="136" width="56" height="10" fill="url(#gold2)" rx="4"/>
+      <rect x="44" y="146" width="72" height="8" fill="url(#gold3)" rx="3"/>
+      <ellipse cx="65" cy="55" rx="6" ry="18" fill="rgba(255,255,255,.2)" transform="rotate(-15 65 55)"/>
+      <path d="M30 130 Q14 118 20 102 Q26 100 30 110 Q26 116 30 130Z" fill="#d4ac0d" opacity=".8"/>
+      <path d="M30 130 Q10 128 8 110 Q14 106 20 116 Q18 124 30 130Z" fill="#b7950b" opacity=".7"/>
+      <path d="M130 130 Q146 118 140 102 Q134 100 130 110 Q134 116 130 130Z" fill="#d4ac0d" opacity=".8"/>
+      <path d="M130 130 Q150 128 152 110 Q146 106 140 116 Q142 124 130 130Z" fill="#b7950b" opacity=".7"/>
+      <circle cx="26" cy="30" r="3" fill="#f0d060" opacity=".7"/>
+      <circle cx="140" cy="50" r="2.5" fill="#f0d060" opacity=".6"/>
+      <circle cx="30" cy="70" r="1.8" fill="#fff" opacity=".5"/>
+      <circle cx="145" cy="30" r="2" fill="#fff" opacity=".5"/>
+      <circle cx="80" cy="15" r="2.5" fill="#f0d060" opacity=".6"/>
+      <defs>
+        <linearGradient id="gold1" x1="45" y1="30" x2="115" y2="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#f9e04b"/><stop offset="50%" stop-color="#e8a500"/><stop offset="100%" stop-color="#c47b00"/>
+        </linearGradient>
+        <linearGradient id="gold2" x1="0" y1="0" x2="160" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#c88000"/>
+        </linearGradient>
+        <linearGradient id="gold3" x1="44" y1="146" x2="116" y2="154" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#d4a017"/><stop offset="100%" stop-color="#a07010"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- TOP TALENT -->
+  <div class="card">
+    <div class="sec-header">
+      <div class="sec-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="sec-title" id="talent-title"></div>
+        <div class="sec-sub" id="talent-desc"></div>
+      </div>
+      <div class="rewards" id="talent-rewards" style="margin-bottom:0;margin-left:auto;flex-shrink:0;"></div>
+    </div>
+    <div class="tabs" id="talent-tabs"></div>
+    <div class="emp-grid" id="talent-grid"></div>
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      <span id="talent-note"></span>
+    </div>
+  </div>
+
+  <!-- TOP MOVER -->
+  <div class="card">
+    <div class="sec-header">
+      <div class="sec-icon" style="background: #12306b;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <div class="sec-title" id="mover-title"></div>
+        <div class="sec-sub" id="mover-desc"></div>
+      </div>
+      <div class="rewards" id="mover-rewards" style="margin-bottom:0;margin-left:auto;flex-shrink:0;"></div>
+    </div>
+    <div class="tabs" id="mover-tabs"></div>
+    <div class="values-bar">
+      <span class="values-label">Core values:</span>
+      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Ownership</span>
+      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Collaboration</span>
+      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M12 2a7 7 0 00-7 7c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7a7 7 0 00-7-7z"/></svg> Innovation</span>
+      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Customer Focus</span>
+    </div>
+    <div class="mover-grid" id="mover-grid"></div>
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      <span id="mover-note"></span>
+    </div>
+  </div>
+
+  <!-- OUR VALUES -->
+  <div class="card">
+    <div class="sec-header" style="margin-bottom:20px;">
+      <div class="sec-icon" style="background: #1a4fae;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+      </div>
+      <div>
+        <div class="sec-title" id="values-title"></div>
+        <div class="sec-sub" id="values-desc"></div>
+      </div>
+    </div>
+    <div class="values-grid" id="values-grid"></div>
+  </div>
+
+  <!-- EXPLORE PAST YEARS -->
+  <div class="years-card">
+    <div class="years-header">
+      <div class="years-info">
+        <div class="years-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <div>
+          <div class="years-title" id="years-title"></div>
+          <div class="years-sub" id="years-sub"></div>
+        </div>
+      </div>
+      <div class="year-tabs" id="year-tabs"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-banner">
+    <p id="footer-text"></p>
+  </div>
+
+  <!-- PROFICIENCY -->
+  <div class="proficiency-section">
+    <div class="card">
+      <div class="prof-header">
+        <div class="prof-title" id="prof-title"></div>
+        <div class="prof-sub" id="prof-sub"></div>
+      </div>
+      <div class="prof-track" id="prof-track"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   ┃                                                                      ┃
+   ┃   📝  EDIT EVERYTHING BELOW — DON'T TOUCH CODE AFTER THIS BLOCK      ┃
+   ┃                                                                      ┃
+   ════════════════════════════════════════════════════════════════════════
+
+   🟢 SAFE TO EDIT: Anything inside RECOGNITION_DATA below
+   🔴 DON'T TOUCH: The render functions further down
+
+   ───────────────────────────────────────────────────────────────────────
+   QUICK GUIDE — WHAT YOU CAN CHANGE:
+
+   ✏️ Hero title and description
+   ✏️ Section titles & descriptions (Top Talent, Top Mover, Our Values)
+   ✏️ Reward amounts and labels
+   ✏️ Notes at the bottom of each section
+   ✏️ Our Values names and definitions
+   ✏️ Proficiency levels & descriptions
+   ✏️ Footer banner text
+   ✏️ Add/edit winners for any quarter or month
+   ✏️ Add new quarters/months (just add a new key in periods{})
+   ───────────────────────────────────────────────────────────────────────
+
+   🎨 AVATAR COLORS available: "av-1" → "av-8"
+      av-1=peach   av-2=lightblue  av-3=mint     av-4=lilac
+      av-5=sand    av-6=pink       av-7=gray     av-8=skyblue
+
+   🏷️  VALUE TAGS for Top Mover (must pair value + valueClass):
+      Ownership      → "tag-own"
+      Collaboration  → "tag-col"
+      Innovation     → "tag-inn"
+      Customer Focus → "tag-cus"
+   ════════════════════════════════════════════════════════════════════════ */
+
+const RECOGNITION_DATA = {
+
+  // ════════ HERO SECTION ════════
+  hero: {
+    title: "VN EMPLOYEE\nRECOGNITION\nPROGRAM",   // \n = line break
+    description: "Celebrating outstanding contributions and values that drive our success."
+  },
+
+  // ════════ TOP TALENT OF THE QUARTER ════════
+  topTalent: {
+    title: "Top Talent of the Quarter",
+    description: "Recognizing top-performing employees across departments each quarter for their outstanding contributions and impact.",
+    note: "Up to 7 winners are selected each quarter.",
+    rewards: [
+      { amount: "2,000,000 VND", label: "bonus",     icon: "money" },
+      { amount: "0.5 day",       label: "extra PTO", icon: "calendar" }
+    ],
+    periods: {
+      "Q1 2026": [
+        // Sample data — replace with real Q1 2026 winners (up to 7)
+        { name: "Linh Nguyen",  role: "Product Manager",       dept: "Product Department",     initials: "LN", color: "av-1" },
+        { name: "Minh Tran",    role: "Senior Developer",      dept: "Engineering Dept",       initials: "MT", color: "av-2" },
+        { name: "Hanh Le",      role: "Marketing Specialist",  dept: "Marketing Dept",         initials: "HL", color: "av-3" },
+        { name: "Dat Pham",     role: "Data Analyst",          dept: "Data Department",        initials: "DP", color: "av-4" },
+        { name: "Thao Vo",      role: "HR Business Partner",   dept: "HR Department",          initials: "TV", color: "av-5" },
+        { name: "Khoa Bui",     role: "Finance Executive",     dept: "Finance Department",     initials: "KB", color: "av-6" },
+        { name: "Nhi Do",       role: "Customer Success",      dept: "Customer Success Dept",  initials: "ND", color: "av-7" }
+      ],
+      "Q2 2026": [],
+      "Q3 2026": [],
+      "Q4 2026": []
+    }
+  },
+
+  // ════════ TOP MOVER (monthly) ════════
+  topMover: {
+    title: "Top Mover",
+    description: "Celebrating employees who exemplify our core values through impactful actions and meaningful contributions each month.",
+    note: "4 winners are selected each month based on the highlighted values.",
+    rewards: [
+      { amount: "700,000 VND", label: "bonus",         icon: "money" },
+      { amount: "Company",     label: "branded gifts", icon: "gift"  }
+    ],
+    periods: {
+      "May 2026": [
+        // Sample data — replace with real May 2026 winners (4 winners, 1 per value)
+        { name: "Quang Le",   role: "Software Engineer",    dept: "Engineering Department",  initials: "QL", color: "av-2",
+          value: "Ownership",      valueClass: "tag-own",
+          desc: "Proactively optimized our system performance, significantly improving user experience." },
+        { name: "Phuong Anh", role: "Marketing Executive",  dept: "Marketing Department",    initials: "PA", color: "av-3",
+          value: "Collaboration",  valueClass: "tag-col",
+          desc: "Led a cross-functional campaign that increased user engagement by 40% within the month." },
+        { name: "Hoang Nam",  role: "Business Analyst",     dept: "Product Department",      initials: "HN", color: "av-5",
+          value: "Innovation",     valueClass: "tag-inn",
+          desc: "Introduced a new data analysis approach that drove key product improvements." },
+        { name: "Yen Nhi",    role: "Customer Support Lead",dept: "Customer Success Dept",   initials: "YN", color: "av-7",
+          value: "Customer Focus", valueClass: "tag-cus",
+          desc: "Went above and beyond to help a key client, earning outstanding appreciation." }
+      ],
+      "June 2026":      [],
+      "July 2026":      [],
+      "August 2026":    [],
+      "September 2026": [],
+      "October 2026":   [],
+      "November 2026":  [],
+      "December 2026":  []
+    }
+  },
+
+  // ════════ OUR VALUES (5 cards) ════════
+  ourValues: {
+    title: "Our Values",
+    description: "The principles that guide how we work, collaborate and create impact together.",
+    list: [
+      { name: "Customer Drives Our Purpose", definition: "We listen, learn, and deliver value that matters to our customers." },
+      { name: "Ownership + Impact",          definition: "We take responsibility, make decisions, and drive meaningful outcomes." },
+      { name: "Win Together",                definition: "We collaborate openly, support each other, and celebrate shared success." },
+      { name: "Adapt + Empower",             definition: "We embrace change, grow continuously, and empower others to lead." },
+      { name: "Relentless Innovation",       definition: "We challenge the status quo, experiment boldly, and pursue better solutions." }
+    ]
+  },
+
+  // ════════ EXPLORE PAST YEARS ════════
+  pastYears: {
+    title: "Explore Past Years",
+    description: "Look back and celebrate more amazing contributions across different years.",
+    startYear: 2026   // First year the program ran. Past Years auto-detects up to current year.
+  },
+
+  // ════════ FOOTER BANNER ════════
+  footer: {
+    textBefore: "Together, we celebrate the people who ",
+    highlight:  "make a difference",
+    textAfter:  " every day."
+  },
+
+  // ════════ PROFICIENCY LEVELS ════════
+  proficiency: {
+    title: "Our Values & Proficient Levels",
+    description: "A shared understanding of proficiency to guide our growth and impact.",
+    levels: [
+      { name: "Developing", description: "I am growing my skills and taking action." },
+      { name: "Performing", description: "I consistently apply and deliver independently." },
+      { name: "Leading",    description: "I influence others and drive impact across teams." }
+    ]
+  }
+
+};
+
+/* ════════════════════════════════════════════════════════════════════════
+   ┃                                                                      ┃
+   ┃   🔴  RENDER CODE BELOW — DON'T EDIT UNLESS YOU KNOW JAVASCRIPT      ┃
+   ┃                                                                      ┃
+   ════════════════════════════════════════════════════════════════════════ */
+
+// --- Icon SVG helpers (reusable) ---
+const ICONS = {
+  money:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8V5m0 0a3 3 0 100-6 3 3 0 000 6"/></svg>',
+  calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01"/></svg>',
+  gift:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>',
+  clock:    '<svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M12 6v6l4 2"/></svg>',
+  star:     '<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>',
+  people:   '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+  bolt:     '<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+  bulb:     '<svg viewBox="0 0 24 24"><path d="M9 18h6M12 2a7 7 0 00-7 7c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7a7 7 0 00-7-7z"/></svg>',
+  smile:    '<svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>'
+};
+
+// Default icons assigned to each Our Values slot (1-5) and Proficiency (1-3)
+const VALUE_ICONS = ['clock', 'star', 'people', 'bolt', 'bulb'];
+const PROF_ICONS  = ['smile', 'star', 'star'];
+
+// --- Hero ---
+document.getElementById('hero-title').textContent = RECOGNITION_DATA.hero.title;
+document.getElementById('hero-desc').textContent  = RECOGNITION_DATA.hero.description;
+
+// --- Section header helper ---
+function renderRewards(elId, rewards) {
+  document.getElementById(elId).innerHTML = rewards.map(r => `
+    <div class="reward-pill">
+      ${ICONS[r.icon] || ICONS.money}
+      <div>
+        <div class="reward-amount">${r.amount}</div>
+        <div class="reward-label">${r.label}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// --- Top Talent ---
+document.getElementById('talent-title').textContent = RECOGNITION_DATA.topTalent.title;
+document.getElementById('talent-desc').textContent  = RECOGNITION_DATA.topTalent.description;
+document.getElementById('talent-note').textContent  = RECOGNITION_DATA.topTalent.note;
+renderRewards('talent-rewards', RECOGNITION_DATA.topTalent.rewards);
+
+// --- Top Mover ---
+document.getElementById('mover-title').textContent = RECOGNITION_DATA.topMover.title;
+document.getElementById('mover-desc').textContent  = RECOGNITION_DATA.topMover.description;
+document.getElementById('mover-note').textContent  = RECOGNITION_DATA.topMover.note;
+renderRewards('mover-rewards', RECOGNITION_DATA.topMover.rewards);
+
+// --- Our Values ---
+document.getElementById('values-title').textContent = RECOGNITION_DATA.ourValues.title;
+document.getElementById('values-desc').textContent  = RECOGNITION_DATA.ourValues.description;
+document.getElementById('values-grid').innerHTML = RECOGNITION_DATA.ourValues.list.map((v, i) => `
+  <div class="value-card">
+    <div class="value-icon-wrap">${ICONS[VALUE_ICONS[i % VALUE_ICONS.length]]}</div>
+    <div class="value-name">${v.name}</div>
+    <div class="value-def">${v.definition}</div>
+  </div>
+`).join('');
+
+// --- Past Years section info ---
+document.getElementById('years-title').textContent = RECOGNITION_DATA.pastYears.title;
+document.getElementById('years-sub').textContent   = RECOGNITION_DATA.pastYears.description;
+
+// --- Footer ---
+document.getElementById('footer-text').innerHTML =
+  `${RECOGNITION_DATA.footer.textBefore}<span>${RECOGNITION_DATA.footer.highlight}</span>${RECOGNITION_DATA.footer.textAfter}`;
+
+// --- Proficiency ---
+document.getElementById('prof-title').textContent = RECOGNITION_DATA.proficiency.title;
+document.getElementById('prof-sub').textContent   = RECOGNITION_DATA.proficiency.description;
+document.getElementById('prof-track').innerHTML = RECOGNITION_DATA.proficiency.levels.map((lvl, i) => {
+  const style = i === 1 ? 'style="background: #1a4fae; box-shadow: 0 0 0 4px #d0e0f8;"' :
+                i === 2 ? 'style="background: var(--gold); box-shadow: 0 0 0 4px #fff3cc;"' : '';
+  const strokeColor = i === 2 ? 'stroke="#7a5200"' : '';
+  return `
+    <div class="prof-level">
+      <div class="prof-circle" ${style}>
+        ${ICONS[PROF_ICONS[i % PROF_ICONS.length]].replace('<svg', '<svg ' + strokeColor)}
+      </div>
+      <div class="prof-name">${lvl.name}</div>
+      <div class="prof-desc">${lvl.description}</div>
+    </div>
+  `;
+}).join('');
+
+// --- Tab rendering ---
+function renderTabs(containerId, periods, onClick) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  periods.forEach((period, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (i === 0 ? ' active' : '');
+    btn.textContent = period;
+    btn.addEventListener('click', () => {
+      el.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      onClick(period);
+    });
+    el.appendChild(btn);
+  });
+}
+
+function renderTalentGrid(period) {
+  const grid = document.getElementById('talent-grid');
+  const winners = RECOGNITION_DATA.topTalent.periods[period] || [];
+  if (winners.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-state-title">Winners coming soon</div><div class="empty-state-sub">Top Talent for ${period} will be announced at the end of the quarter.</div></div>`;
+    return;
+  }
+  grid.innerHTML = winners.map(w => `
+    <div class="emp-card">
+      <div class="emp-avatar-placeholder ${w.color}">${w.initials}</div>
+      <div class="emp-name">${w.name}</div>
+      <div class="emp-role">${w.role}</div>
+      <div class="emp-dept">${w.dept}</div>
+    </div>
+  `).join('');
+}
+
+function renderMoverGrid(period) {
+  const grid = document.getElementById('mover-grid');
+  const winners = RECOGNITION_DATA.topMover.periods[period] || [];
+  if (winners.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-state-title">Winners coming soon</div><div class="empty-state-sub">Top Movers for ${period} will be announced at month-end.</div></div>`;
+    return;
+  }
+  grid.innerHTML = winners.map(w => `
+    <div class="mover-card">
+      <div class="mover-top">
+        <div class="mover-avatar-placeholder ${w.color}">${w.initials}</div>
+        <div>
+          <div class="mover-name">${w.name}</div>
+          <div class="mover-role">${w.role}</div>
+          <div class="mover-dept">${w.dept}</div>
+        </div>
+      </div>
+      <span class="value-tag ${w.valueClass}">${w.value}</span>
+      <div class="mover-desc">${w.desc}</div>
+    </div>
+  `).join('');
+}
+
+// --- Past Years tabs (auto-detect: startYear → current year, newest first) ---
+function renderYearTabs() {
+  const el = document.getElementById('year-tabs');
+  const start = RECOGNITION_DATA.pastYears.startYear;
+  const current = new Date().getFullYear();
+  const years = [];
+  for (let y = current; y >= start; y--) years.push(y.toString());
+  if (years.length === 0) years.push(start.toString());
+
+  el.innerHTML = '';
+  years.forEach((year, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'year-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = year;
+    btn.addEventListener('click', () => {
+      el.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+    });
+    el.appendChild(btn);
+  });
+}
+
+// --- Initial render ---
+const talentPeriods = Object.keys(RECOGNITION_DATA.topTalent.periods);
+const moverPeriods  = Object.keys(RECOGNITION_DATA.topMover.periods);
+renderTabs('talent-tabs', talentPeriods, renderTalentGrid);
+renderTalentGrid(talentPeriods[0]);
+renderTabs('mover-tabs', moverPeriods, renderMoverGrid);
+renderMoverGrid(moverPeriods[0]);
+renderYearTabs();
+</script>
+</body>
+</html>
