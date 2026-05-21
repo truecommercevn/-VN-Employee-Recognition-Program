@@ -97,7 +97,8 @@
   .emp-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
   .emp-card { background: var(--bg); border-radius: 10px; padding: 16px 10px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 130px; flex-shrink: 0; }
   .emp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
-  .emp-avatar-placeholder { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); border: 2.5px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.12); }
+  .emp-avatar-placeholder { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); border: 2.5px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.12); position: relative; overflow: hidden; }
+  .emp-avatar-placeholder img, .mover-avatar-placeholder img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
   .emp-name { font-size: .825rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
   .emp-role { font-size: .7rem; color: var(--muted); margin-bottom: 2px; }
   .emp-dept { font-size: .68rem; color: var(--blue); font-weight: 500; }
@@ -112,7 +113,7 @@
   .mover-card { background: var(--bg); border-radius: 10px; padding: 18px; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 250px; flex-shrink: 0; }
   .mover-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
   .mover-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .mover-avatar-placeholder { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); border: 2px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.1); }
+  .mover-avatar-placeholder { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); border: 2px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.1); position: relative; overflow: hidden; }
   .mover-name { font-size: .9rem; font-weight: 600; color: var(--navy); }
   .mover-role { font-size: .72rem; color: var(--muted); }
   .mover-dept { font-size: .72rem; color: var(--blue); font-weight: 500; margin-top: 1px; }
@@ -354,6 +355,13 @@
 
 const RECOGNITION_DATA = {
 
+  // ════════ CONFIG ════════
+  // SharePoint tenant URL — dùng để pull ảnh từ Teams/M365.
+  // Thêm field `email` cho mỗi người để tự load ảnh; nếu fail tự về initials.
+  config: {
+    sharepointPhotoBase: "https://truecommerce.sharepoint.com/_layouts/15/userphoto.aspx"
+  },
+
   // ════════ HERO SECTION ════════
   hero: {
     title: "VN EMPLOYEE\nRECOGNITION\nPROGRAM",   // \n = line break
@@ -372,13 +380,14 @@ const RECOGNITION_DATA = {
     periods: {
       "Q1 2026": [
         // Sample data — replace with real Q1 2026 winners (up to 7)
-        { name: "Linh Nguyen",  role: "Product Manager",       dept: "Product Department",     initials: "LN", color: "av-1" },
-        { name: "Minh Tran",    role: "Senior Developer",      dept: "Engineering Dept",       initials: "MT", color: "av-2" },
-        { name: "Hanh Le",      role: "Marketing Specialist",  dept: "Marketing Dept",         initials: "HL", color: "av-3" },
-        { name: "Dat Pham",     role: "Data Analyst",          dept: "Data Department",        initials: "DP", color: "av-4" },
-        { name: "Thao Vo",      role: "HR Business Partner",   dept: "HR Department",          initials: "TV", color: "av-5" },
-        { name: "Khoa Bui",     role: "Finance Executive",     dept: "Finance Department",     initials: "KB", color: "av-6" },
-        { name: "Nhi Do",       role: "Customer Success",      dept: "Customer Success Dept",  initials: "ND", color: "av-7" }
+        // Thêm field `email` để tự pull ảnh từ SharePoint/Teams; nếu fail tự hiện initials
+        { name: "Linh Nguyen",  email: "linh.nguyen@truecommerce.com",  role: "Product Manager",       dept: "Product Department",     initials: "LN", color: "av-1" },
+        { name: "Minh Tran",    email: "minh.tran@truecommerce.com",    role: "Senior Developer",      dept: "Engineering Dept",       initials: "MT", color: "av-2" },
+        { name: "Hanh Le",      email: "hanh.le@truecommerce.com",      role: "Marketing Specialist",  dept: "Marketing Dept",         initials: "HL", color: "av-3" },
+        { name: "Dat Pham",     email: "dat.pham@truecommerce.com",     role: "Data Analyst",          dept: "Data Department",        initials: "DP", color: "av-4" },
+        { name: "Thao Vo",      email: "thao.vo@truecommerce.com",      role: "HR Business Partner",   dept: "HR Department",          initials: "TV", color: "av-5" },
+        { name: "Khoa Bui",     email: "khoa.bui@truecommerce.com",     role: "Finance Executive",     dept: "Finance Department",     initials: "KB", color: "av-6" },
+        { name: "Nhi Do",       email: "nhi.do@truecommerce.com",       role: "Customer Success",      dept: "Customer Success Dept",  initials: "ND", color: "av-7" }
       ],
       "Q2 2026": [],
       "Q3 2026": [],
@@ -402,16 +411,17 @@ const RECOGNITION_DATA = {
     periods: {
       "May 2026": [
         // Sample data — replace with real May 2026 winners (4 winners, 1 per value)
-        { name: "Quang Le",   role: "Software Engineer",    dept: "Engineering Department",  initials: "QL", color: "av-2",
+        // Thêm `email` để pull ảnh từ Teams; nếu fail tự về initials
+        { name: "Quang Le",   email: "quang.le@truecommerce.com",   role: "Software Engineer",    dept: "Engineering Department",  initials: "QL", color: "av-2",
           value: "Ownership",      valueClass: "tag-own",
           desc: "Proactively optimized our system performance, significantly improving user experience." },
-        { name: "Phuong Anh", role: "Marketing Executive",  dept: "Marketing Department",    initials: "PA", color: "av-3",
+        { name: "Phuong Anh", email: "phuong.anh@truecommerce.com", role: "Marketing Executive",  dept: "Marketing Department",    initials: "PA", color: "av-3",
           value: "Collaboration",  valueClass: "tag-col",
           desc: "Led a cross-functional campaign that increased user engagement by 40% within the month." },
-        { name: "Hoang Nam",  role: "Business Analyst",     dept: "Product Department",      initials: "HN", color: "av-5",
+        { name: "Hoang Nam",  email: "hoang.nam@truecommerce.com",  role: "Business Analyst",     dept: "Product Department",      initials: "HN", color: "av-5",
           value: "Innovation",     valueClass: "tag-inn",
           desc: "Introduced a new data analysis approach that drove key product improvements." },
-        { name: "Yen Nhi",    role: "Customer Support Lead",dept: "Customer Success Dept",   initials: "YN", color: "av-7",
+        { name: "Yen Nhi",    email: "yen.nhi@truecommerce.com",    role: "Customer Support Lead",dept: "Customer Success Dept",   initials: "YN", color: "av-7",
           value: "Customer Focus", valueClass: "tag-cus",
           desc: "Went above and beyond to help a key client, earning outstanding appreciation." }
       ],
@@ -579,6 +589,18 @@ function renderTabs(containerId, periods, onClick) {
   });
 }
 
+// Helper: build avatar HTML with optional SharePoint photo + initials fallback
+function avatarHtml(person, placeholderClass) {
+  const initials = person.initials || person.name.split(' ').map(s => s[0]).join('').slice(0, 2).toUpperCase();
+  const colorClass = person.color || 'av-1';
+  if (person.email) {
+    const url = `${RECOGNITION_DATA.config.sharepointPhotoBase}?accountname=${encodeURIComponent(person.email)}&size=L`;
+    // onerror removes the failed img, leaving initials + gradient visible
+    return `<div class="${placeholderClass} ${colorClass}">${initials}<img src="${url}" alt="${person.name}" onerror="this.remove()"/></div>`;
+  }
+  return `<div class="${placeholderClass} ${colorClass}">${initials}</div>`;
+}
+
 function renderTalentGrid(period) {
   const grid = document.getElementById('talent-grid');
   const winners = RECOGNITION_DATA.topTalent.periods[period] || [];
@@ -588,7 +610,7 @@ function renderTalentGrid(period) {
   }
   grid.innerHTML = winners.map(w => `
     <div class="emp-card">
-      <div class="emp-avatar-placeholder ${w.color}">${w.initials}</div>
+      ${avatarHtml(w, 'emp-avatar-placeholder')}
       <div class="emp-name">${w.name}</div>
       <div class="emp-role">${w.role}</div>
       <div class="emp-dept">${w.dept}</div>
@@ -606,7 +628,7 @@ function renderMoverGrid(period) {
   grid.innerHTML = winners.map(w => `
     <div class="mover-card">
       <div class="mover-top">
-        <div class="mover-avatar-placeholder ${w.color}">${w.initials}</div>
+        ${avatarHtml(w, 'mover-avatar-placeholder')}
         <div>
           <div class="mover-name">${w.name}</div>
           <div class="mover-role">${w.role}</div>
@@ -680,4 +702,3 @@ setActiveYear(initialYear);
 </script>
 </body>
 </html>
-l>
