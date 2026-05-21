@@ -94,8 +94,8 @@
   .tab.active { background: var(--navy); color: #fff; }
   .tab:hover:not(.active) { background: #d8dde7; color: var(--navy); }
 
-  .emp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px; }
-  .emp-card { background: var(--bg); border-radius: 10px; padding: 16px 12px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; }
+  .emp-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .emp-card { background: var(--bg); border-radius: 10px; padding: 16px 12px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 150px; flex-shrink: 0; }
   .emp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
   .emp-avatar-placeholder { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); border: 2.5px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.12); }
   .emp-name { font-size: .825rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
@@ -104,12 +104,12 @@
   .note { font-size: .75rem; color: var(--muted); margin-top: 16px; display: flex; align-items: center; gap: 6px; }
   .note svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-  .empty-state { grid-column: 1 / -1; text-align: center; padding: 48px 24px; color: var(--muted); background: var(--bg); border-radius: 10px; border: 1.5px dashed var(--border); }
+  .empty-state { flex-basis: 100%; width: 100%; text-align: center; padding: 48px 24px; color: var(--muted); background: var(--bg); border-radius: 10px; border: 1.5px dashed var(--border); }
   .empty-state-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
   .empty-state-sub { font-size: .85rem; }
 
-  .mover-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-  .mover-card { background: var(--bg); border-radius: 10px; padding: 20px; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; }
+  .mover-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .mover-card { background: var(--bg); border-radius: 10px; padding: 20px; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 280px; flex-shrink: 0; }
   .mover-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
   .mover-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
   .mover-avatar-placeholder { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); border: 2px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.1); }
@@ -128,8 +128,8 @@
   .val-chip { display: flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; font-size: .78rem; font-weight: 500; background: var(--blue-light); color: var(--navy); }
   .val-chip svg { width: 14px; height: 14px; }
 
-  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-  .value-card { background: var(--bg); border-radius: 10px; padding: 24px 16px; text-align: center; border: 1.5px solid var(--border); transition: border-color .18s, transform .18s; }
+  .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .value-card { background: var(--bg); border-radius: 10px; padding: 24px 16px; text-align: center; border: 1.5px solid var(--border); transition: border-color .18s, transform .18s; width: 220px; flex-shrink: 0; }
   .value-card:hover { border-color: var(--blue); transform: translateY(-2px); }
   .value-icon-wrap { width: 52px; height: 52px; border-radius: 14px; background: var(--navy); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
   .value-icon-wrap svg { width: 26px; height: 26px; color: #fff; fill: none; stroke: currentColor; stroke-width: 1.6; }
@@ -382,7 +382,11 @@ const RECOGNITION_DATA = {
       ],
       "Q2 2026": [],
       "Q3 2026": [],
-      "Q4 2026": []
+      "Q4 2026": [],
+      // 2025 — Top Talent only (no Top Mover for 2025). Q1 2025 không có data nên skip.
+      "Q2 2025": [],
+      "Q3 2025": [],
+      "Q4 2025": []
     }
   },
 
@@ -426,11 +430,11 @@ const RECOGNITION_DATA = {
     title: "Our Values",
     description: "The principles that guide how we work, collaborate and create impact together.",
     list: [
-      { name: "Customer Drives Our Purpose", definition: "We listen, learn, and deliver value that matters to our customers." },
-      { name: "Ownership + Impact",          definition: "We take responsibility, make decisions, and drive meaningful outcomes." },
-      { name: "Win Together",                definition: "We collaborate openly, support each other, and celebrate shared success." },
-      { name: "Adapt + Empower",             definition: "We embrace change, grow continuously, and empower others to lead." },
-      { name: "Relentless Innovation",       definition: "We challenge the status quo, experiment boldly, and pursue better solutions." }
+      { name: "Customer Drives Our Purpose", definition: "We put the customer at the center of every decision. We deliver solutions that solve their problems, exceed expectations, and drive measurable growth." },
+      { name: "Ownership + Impact",          definition: "We show initiative and operate with urgency. We have a duty to communicate proactively. We deliver on promises to customers, teammates, and stakeholders with accountability and no excuses." },
+      { name: "Win Together",                definition: "We foster trust, respect and collaboration to achieve collective success. We never say \"that's not my job\" because we take a \"can do\" attitude to best serve our teams and customers." },
+      { name: "Adapt + Empower",             definition: "We embrace challenges as opportunities. When things don't go as planned, we communicate, identify solutions, and find a path forward. We empower our teams to pivot quickly, learn from setbacks, and deliver results." },
+      { name: "Relentless Innovation",       definition: "We push boundaries to create smarter, scalable solutions. We challenge the status quo, embrace new ideas, drive simple and efficient processes, and deliver cutting-edge tools." }
     ]
   },
 
@@ -438,7 +442,7 @@ const RECOGNITION_DATA = {
   pastYears: {
     title: "Explore Past Years",
     description: "Look back and celebrate more amazing contributions across different years.",
-    startYear: 2026   // First year the program ran. Past Years auto-detects up to current year.
+    startYear: 2025   // First year the program ran. Past Years auto-detects up to current year.
   },
 
   // ════════ FOOTER BANNER ════════
@@ -477,11 +481,19 @@ const ICONS = {
   people:   '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
   bolt:     '<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
   bulb:     '<svg viewBox="0 0 24 24"><path d="M9 18h6M12 2a7 7 0 00-7 7c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7a7 7 0 00-7-7z"/></svg>',
-  smile:    '<svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>'
+  smile:    '<svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>',
+  // ── Corporate Values icons (match TrueCommerce slide) ──
+  magnifyPerson: '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><line x1="15.5" y1="15.5" x2="21" y2="21"/><circle cx="10" cy="8.5" r="1.8"/><path d="M6.2 14.2c.2-2.1 1.9-3.4 3.8-3.4s3.6 1.3 3.8 3.4"/></svg>',
+  targetArrow:   '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4.5"/><circle cx="11" cy="13" r="1.5" fill="currentColor"/><line x1="11" y1="13" x2="21" y2="3"/><polyline points="21 3 17 3 17 7 21 7"/></svg>',
+  handsJoin:     '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M10 9V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v6"/><path d="M10 15v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-6"/><path d="M9 10H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6"/><path d="M15 10h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-6"/></svg>',
+  mindSpark:     '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4c-4 0-7 3-7 7 0 2 1 4 2 5v5h6v-5c2-1 3-3 3-5 0-4-2-7-4-7z"/><circle cx="13" cy="11" r="1.6"/><path d="M20 4l-2.5 4.5h2.5L18 13"/></svg>',
+  rocketLaunch:  '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-2.5 2.5-3.5 5.5-3.5 8.5V16h7v-5.5c0-3-1-6-3.5-8.5z"/><circle cx="12" cy="9" r="1.4"/><path d="M8.5 13.5L5.5 16.5h3"/><path d="M15.5 13.5l3 3h-3"/><path d="M10.5 16v2l1.5 2 1.5-2v-2"/><path d="M2 19c1-1.5 3-1.5 4 0"/><path d="M18 20c1-1.5 3-1.5 4 0"/></svg>'
 };
 
 // Default icons assigned to each Our Values slot (1-5) and Proficiency (1-3)
-const VALUE_ICONS = ['clock', 'star', 'people', 'bolt', 'bulb'];
+// Order matches RECOGNITION_DATA.ourValues.list:
+// 0=Customer Drives Our Purpose, 1=Ownership+Impact, 2=Win Together, 3=Adapt+Empower, 4=Relentless Innovation
+const VALUE_ICONS = ['magnifyPerson', 'targetArrow', 'handsJoin', 'mindSpark', 'rocketLaunch'];
 const PROF_ICONS  = ['smile', 'star', 'star'];
 
 // --- Hero ---
@@ -607,6 +619,36 @@ function renderMoverGrid(period) {
   `).join('');
 }
 
+// --- Filter periods that belong to a given year (period keys end with " 2025"/" 2026"/etc.) ---
+function getPeriodsForYear(allPeriods, year) {
+  return Object.keys(allPeriods).filter(k => k.endsWith(' ' + year));
+}
+
+// --- Switch the entire view to a given year ---
+function setActiveYear(year) {
+  // Top Talent
+  const talentPeriods = getPeriodsForYear(RECOGNITION_DATA.topTalent.periods, year);
+  if (talentPeriods.length === 0) {
+    document.getElementById('talent-tabs').innerHTML = '';
+    document.getElementById('talent-grid').innerHTML =
+      `<div class="empty-state"><div class="empty-state-title">No Top Talent data for ${year}</div><div class="empty-state-sub">This year's recognition records are not yet available.</div></div>`;
+  } else {
+    renderTabs('talent-tabs', talentPeriods, renderTalentGrid);
+    renderTalentGrid(talentPeriods[0]);
+  }
+
+  // Top Mover
+  const moverPeriods = getPeriodsForYear(RECOGNITION_DATA.topMover.periods, year);
+  if (moverPeriods.length === 0) {
+    document.getElementById('mover-tabs').innerHTML = '';
+    document.getElementById('mover-grid').innerHTML =
+      `<div class="empty-state"><div class="empty-state-title">No Top Mover data for ${year}</div><div class="empty-state-sub">The Top Mover program may not have been active in this year.</div></div>`;
+  } else {
+    renderTabs('mover-tabs', moverPeriods, renderMoverGrid);
+    renderMoverGrid(moverPeriods[0]);
+  }
+}
+
 // --- Past Years tabs (auto-detect: startYear → current year, newest first) ---
 function renderYearTabs() {
   const el = document.getElementById('year-tabs');
@@ -624,19 +666,17 @@ function renderYearTabs() {
     btn.addEventListener('click', () => {
       el.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
+      setActiveYear(year);
     });
     el.appendChild(btn);
   });
+
+  return years[0]; // most recent year, used for initial view
 }
 
-// --- Initial render ---
-const talentPeriods = Object.keys(RECOGNITION_DATA.topTalent.periods);
-const moverPeriods  = Object.keys(RECOGNITION_DATA.topMover.periods);
-renderTabs('talent-tabs', talentPeriods, renderTalentGrid);
-renderTalentGrid(talentPeriods[0]);
-renderTabs('mover-tabs', moverPeriods, renderMoverGrid);
-renderMoverGrid(moverPeriods[0]);
-renderYearTabs();
+// --- Initial render: show the most recent year by default ---
+const initialYear = renderYearTabs();
+setActiveYear(initialYear);
 </script>
 </body>
 </html>
