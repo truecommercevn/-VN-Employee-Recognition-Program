@@ -56,20 +56,33 @@
     background-size: 28px 28px;
   }
   .hero-content { flex: 1; position: relative; z-index: 1; }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; line-height: 1.1;
-    color: #fff; letter-spacing: -.01em;
-    text-shadow: 0 2px 20px rgba(0,0,0,.3);
-    white-space: pre-line;
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(176,197,220,.3);
+    padding: 6px 18px 6px 14px; border-radius: 24px;
+    color: #b0c5dc; font-size: .72rem; font-weight: 600;
+    letter-spacing: .15em; margin-bottom: 20px;
+    font-family: 'DM Sans', sans-serif;
   }
-  .hero-accent { display: block; width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0; }
-  .hero p { color: rgba(255,255,255,.82); font-size: 1rem; max-width: 480px; line-height: 1.6; }
-  .trophy-placeholder {
-    width: 180px; height: 180px; flex-shrink: 0; position: relative; z-index: 1;
+  .hero-pill::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: #5b9be8; box-shadow: 0 0 8px rgba(91,155,232,.6);
+  }
+  .hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3.2rem; font-weight: 800; line-height: 1.05;
+    color: #fff; letter-spacing: -.015em;
+    text-shadow: 0 2px 20px rgba(0,0,0,.3);
+  }
+  .hero-title-accent { color: #5b9be8; }
+  .hero-accent { display: block; width: 56px; height: 4px; background: #5b9be8; border-radius: 2px; margin: 16px 0; }
+  .hero p { color: rgba(255,255,255,.78); font-size: 1rem; max-width: 480px; line-height: 1.6; }
+  .medal-placeholder {
+    width: 240px; height: 240px; flex-shrink: 0; position: relative; z-index: 1;
     display: flex; align-items: center; justify-content: center;
   }
-  .trophy-svg { width: 160px; height: 160px; filter: drop-shadow(0 8px 32px rgba(240,168,0,.4)); }
+  .medal-svg { width: 100%; height: 100%; filter: drop-shadow(0 12px 30px rgba(240,168,0,.35)); }
 
   /* MAIN */
   .main { max-width: 100%; margin: 0 auto; padding: 32px 20px; display: flex; flex-direction: column; gap: 28px; }
@@ -183,40 +196,33 @@
 <div class="hero">
   <div class="hero-dots"></div>
   <div class="hero-content">
-    <h1 id="hero-title"></h1>
+    <span class="hero-pill" id="hero-pill"></span>
+    <h1><span id="hero-title-main"></span> <span id="hero-title-accent" class="hero-title-accent"></span></h1>
     <span class="hero-accent"></span>
     <p id="hero-desc"></p>
   </div>
-  <div class="trophy-placeholder">
-    <svg class="trophy-svg" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M45 30 Q40 90 80 110 Q120 90 115 30 Z" fill="url(#gold1)" stroke="#c8860a" stroke-width="1.5"/>
-      <path d="M45 45 Q22 45 22 72 Q22 88 38 90" fill="none" stroke="url(#gold2)" stroke-width="6" stroke-linecap="round"/>
-      <path d="M115 45 Q138 45 138 72 Q138 88 122 90" fill="none" stroke="url(#gold2)" stroke-width="6" stroke-linecap="round"/>
-      <polygon points="80,48 85,63 100,63 88,73 92,88 80,78 68,88 72,73 60,63 75,63" fill="#fffbe0" opacity=".9"/>
-      <rect x="73" y="110" width="14" height="26" fill="url(#gold1)" rx="3"/>
-      <rect x="52" y="136" width="56" height="10" fill="url(#gold2)" rx="4"/>
-      <rect x="44" y="146" width="72" height="8" fill="url(#gold3)" rx="3"/>
-      <ellipse cx="65" cy="55" rx="6" ry="18" fill="rgba(255,255,255,.2)" transform="rotate(-15 65 55)"/>
-      <path d="M30 130 Q14 118 20 102 Q26 100 30 110 Q26 116 30 130Z" fill="#d4ac0d" opacity=".8"/>
-      <path d="M30 130 Q10 128 8 110 Q14 106 20 116 Q18 124 30 130Z" fill="#b7950b" opacity=".7"/>
-      <path d="M130 130 Q146 118 140 102 Q134 100 130 110 Q134 116 130 130Z" fill="#d4ac0d" opacity=".8"/>
-      <path d="M130 130 Q150 128 152 110 Q146 106 140 116 Q142 124 130 130Z" fill="#b7950b" opacity=".7"/>
-      <circle cx="26" cy="30" r="3" fill="#f0d060" opacity=".7"/>
-      <circle cx="140" cy="50" r="2.5" fill="#f0d060" opacity=".6"/>
-      <circle cx="30" cy="70" r="1.8" fill="#fff" opacity=".5"/>
-      <circle cx="145" cy="30" r="2" fill="#fff" opacity=".5"/>
-      <circle cx="80" cy="15" r="2.5" fill="#f0d060" opacity=".6"/>
+  <div class="medal-placeholder">
+    <svg class="medal-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="gold1" x1="45" y1="30" x2="115" y2="110" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#f9e04b"/><stop offset="50%" stop-color="#e8a500"/><stop offset="100%" stop-color="#c47b00"/>
+        <linearGradient id="md-gold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE07A"/>
+          <stop offset=".6" stop-color="#F5B82E"/>
+          <stop offset="1" stop-color="#B7780E"/>
         </linearGradient>
-        <linearGradient id="gold2" x1="0" y1="0" x2="160" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#c88000"/>
-        </linearGradient>
-        <linearGradient id="gold3" x1="44" y1="146" x2="116" y2="154" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#d4a017"/><stop offset="100%" stop-color="#a07010"/>
+        <linearGradient id="md-rib1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#00A7E1"/>
+          <stop offset="1" stop-color="#0072C6"/>
         </linearGradient>
       </defs>
+      <path d="M 78 26 L 110 26 L 130 130 L 98 130 Z" fill="url(#md-rib1)"/>
+      <path d="M 162 26 L 130 26 L 110 130 L 142 130 Z" fill="#0B2545"/>
+      <path d="M 78 26 L 94 26 L 86 44 Z" fill="#0072C6"/>
+      <path d="M 162 26 L 146 26 L 154 44 Z" fill="#081B36"/>
+      <circle cx="120" cy="156" r="62" fill="#B7780E"/>
+      <circle cx="120" cy="156" r="58" fill="url(#md-gold)"/>
+      <circle cx="120" cy="156" r="46" fill="none" stroke="#B7780E" stroke-width="2" opacity=".45"/>
+      <path d="M 120 124 L 129 146 L 153 148 L 134.5 163 L 140 186 L 120 174 L 100 186 L 105.5 163 L 87 148 L 111 146 Z" fill="#0B2545"/>
+      <path d="M 86 132 C 92 122 102 116 116 114 L 116 120 C 104 122 96 128 92 138 Z" fill="#FFF3C9" opacity=".7"/>
     </svg>
   </div>
 </div>
@@ -364,8 +370,10 @@ const RECOGNITION_DATA = {
 
   // ════════ HERO SECTION ════════
   hero: {
-    title: "VN EMPLOYEE\nRECOGNITION\nPROGRAM",   // \n = line break
-    description: "Celebrating outstanding contributions and values that drive our success."
+    pill: "RECOGNITION · VIETNAM",
+    title: "VN Employee Recognition",
+    titleAccent: "Program",                         // chữ này hiển màu xanh nhạt
+    description: "Celebrating outstanding contributions and the values that drive our success."
   },
 
   // ════════ TOP TALENT OF THE QUARTER ════════
@@ -507,8 +515,10 @@ const VALUE_ICONS = ['magnifyPerson', 'targetArrow', 'handsJoin', 'mindSpark', '
 const PROF_ICONS  = ['smile', 'star', 'star'];
 
 // --- Hero ---
-document.getElementById('hero-title').textContent = RECOGNITION_DATA.hero.title;
-document.getElementById('hero-desc').textContent  = RECOGNITION_DATA.hero.description;
+document.getElementById('hero-pill').textContent         = RECOGNITION_DATA.hero.pill;
+document.getElementById('hero-title-main').textContent   = RECOGNITION_DATA.hero.title;
+document.getElementById('hero-title-accent').textContent = RECOGNITION_DATA.hero.titleAccent;
+document.getElementById('hero-desc').textContent         = RECOGNITION_DATA.hero.description;
 
 // --- Section header helper ---
 function renderRewards(elId, rewards) {
