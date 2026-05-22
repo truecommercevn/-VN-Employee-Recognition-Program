@@ -115,8 +115,8 @@
   .tab.active { background: var(--navy); color: #fff; }
   .tab:hover:not(.active) { background: #d8dde7; color: var(--navy); }
 
-  .emp-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
-  .emp-card { background: var(--bg); border-radius: 10px; padding: 16px 10px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 130px; flex-shrink: 0; }
+  .emp-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .emp-card { background: var(--bg); border-radius: 10px; padding: 14px 8px; text-align: center; transition: transform .18s, box-shadow .18s; cursor: pointer; border: 1.5px solid transparent; width: 116px; flex-shrink: 0; }
   .emp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
   .emp-avatar-placeholder { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); border: 2.5px solid var(--white); box-shadow: 0 2px 8px rgba(10,31,68,.12); position: relative; overflow: hidden; }
   .emp-avatar-placeholder img, .mover-avatar-placeholder img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
@@ -392,10 +392,16 @@ const RECOGNITION_DATA = {
     title: "Top Talent of the Quarter",
     description: "Recognizing top-performing employees across departments each quarter for their outstanding contributions and impact.",
     note: "Up to 7 winners are selected each quarter.",
-    rewards: [
-      { amount: "2,000,000 VND", label: "bonus",     icon: "money" },
-      { amount: "0.5 day",       label: "extra PTO", icon: "calendar" }
-    ],
+    // Rewards khác nhau theo năm — key là năm dạng string
+    rewardsByYear: {
+      "2025": [
+        { amount: "4,000,000 VND", label: "bonus", icon: "money" }
+      ],
+      "2026": [
+        { amount: "2,000,000 VND", label: "bonus",     icon: "money" },
+        { amount: "0.5 day",       label: "extra PTO", icon: "calendar" }
+      ]
+    },
     periods: {
       "Q1 2026": [
         { name: "Cuong Truong",  email: "cuong.truong@truecommerce.com",  role: "Sr Software Engineer",     dept: "Product Development",     initials: "CT", color: "av-1" },
@@ -555,7 +561,7 @@ function renderRewards(elId, rewards) {
 document.getElementById('talent-title').textContent = RECOGNITION_DATA.topTalent.title;
 document.getElementById('talent-desc').textContent  = RECOGNITION_DATA.topTalent.description;
 document.getElementById('talent-note').textContent  = RECOGNITION_DATA.topTalent.note;
-renderRewards('talent-rewards', RECOGNITION_DATA.topTalent.rewards);
+// Rewards sẽ render trong setActiveYear theo năm đang chọn
 
 // --- Top Mover ---
 document.getElementById('mover-title').textContent = RECOGNITION_DATA.topMover.title;
@@ -676,6 +682,12 @@ function getPeriodsForYear(allPeriods, year) {
 
 // --- Switch the entire view to a given year ---
 function setActiveYear(year) {
+  // Top Talent rewards (khác nhau theo năm — fallback 2026 nếu không tìm thấy)
+  const rewards = RECOGNITION_DATA.topTalent.rewardsByYear[year]
+    || RECOGNITION_DATA.topTalent.rewardsByYear["2026"]
+    || [];
+  renderRewards('talent-rewards', rewards);
+
   // Top Talent
   const talentPeriods = getPeriodsForYear(RECOGNITION_DATA.topTalent.periods, year);
   if (talentPeriods.length === 0) {
