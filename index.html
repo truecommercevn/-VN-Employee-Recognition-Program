@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VN Employee Recognition Program</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,7 +37,7 @@
 
   /* HERO */
   .hero {
-    background: linear-gradient(110deg, #071630 0%, #0e2d6e 50%, #163d8a 100%);
+    background: linear-gradient(120deg, #0B2545 0%, #102A56 55%, #0E3A6E 100%);
     min-height: 260px;
     display: flex;
     align-items: center;
@@ -59,24 +59,32 @@
   .hero-pill {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255,255,255,.05);
-    border: 1px solid rgba(176,197,220,.3);
+    border: 1px solid rgba(125,211,252,.3);
     padding: 6px 18px 6px 14px; border-radius: 24px;
-    color: #b0c5dc; font-size: .72rem; font-weight: 600;
+    color: #7DD3FC; font-size: .72rem; font-weight: 600;
     letter-spacing: .15em; margin-bottom: 20px;
     font-family: 'DM Sans', sans-serif;
   }
   .hero-pill::before {
     content: ''; width: 7px; height: 7px; border-radius: 50%;
-    background: #5b9be8; box-shadow: 0 0 8px rgba(91,155,232,.6);
+    background: #7DD3FC; box-shadow: 0 0 10px rgba(125,211,252,.7);
   }
   .hero h1 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 3.2rem; font-weight: 800; line-height: 1.05;
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem; font-weight: 800; line-height: 1.1;
     color: #fff; letter-spacing: -.015em;
     text-shadow: 0 2px 20px rgba(0,0,0,.3);
   }
-  .hero-title-accent { color: #5b9be8; }
-  .hero-accent { display: block; width: 56px; height: 4px; background: #5b9be8; border-radius: 2px; margin: 16px 0; }
+  .hero-title-line1 { display: block; color: #fff; }
+  .hero-title-line2 {
+    display: block;
+    background-image: linear-gradient(90deg, #ffffff 0%, #7DD3FC 55%, #00A7E1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .hero-accent { display: block; width: 56px; height: 4px; background: linear-gradient(90deg, #00A7E1, #7DD3FC); border-radius: 2px; margin: 16px 0; }
   .hero p { color: rgba(255,255,255,.78); font-size: 1rem; max-width: 480px; line-height: 1.6; }
   .medal-placeholder {
     width: 240px; height: 240px; flex-shrink: 0; position: relative; z-index: 1;
@@ -197,7 +205,10 @@
   <div class="hero-dots"></div>
   <div class="hero-content">
     <span class="hero-pill" id="hero-pill"></span>
-    <h1><span id="hero-title-main"></span> <span id="hero-title-accent" class="hero-title-accent"></span></h1>
+    <h1>
+      <span id="hero-title-line1" class="hero-title-line1"></span>
+      <span id="hero-title-line2" class="hero-title-line2"></span>
+    </h1>
     <span class="hero-accent"></span>
     <p id="hero-desc"></p>
   </div>
@@ -371,8 +382,8 @@ const RECOGNITION_DATA = {
   // ════════ HERO SECTION ════════
   hero: {
     pill: "RECOGNITION · VIETNAM",
-    title: "VN Employee Recognition",
-    titleAccent: "Program",                         // chữ này hiển màu xanh nhạt
+    titleLine1: "VN Employee",              // dòng 1 — trắng solid
+    titleLine2: "Recognition Program",      // dòng 2 — gradient trắng → xanh ombre
     description: "Celebrating outstanding contributions and the values that drive our success."
   },
 
@@ -387,23 +398,45 @@ const RECOGNITION_DATA = {
     ],
     periods: {
       "Q1 2026": [
-        // Sample data — replace with real Q1 2026 winners (up to 7)
-        // Thêm field `email` để tự pull ảnh từ SharePoint/Teams; nếu fail tự hiện initials
-        { name: "Linh Nguyen",  email: "linh.nguyen@truecommerce.com",  role: "Product Manager",       dept: "Product Department",     initials: "LN", color: "av-1" },
-        { name: "Minh Tran",    email: "minh.tran@truecommerce.com",    role: "Senior Developer",      dept: "Engineering Dept",       initials: "MT", color: "av-2" },
-        { name: "Hanh Le",      email: "hanh.le@truecommerce.com",      role: "Marketing Specialist",  dept: "Marketing Dept",         initials: "HL", color: "av-3" },
-        { name: "Dat Pham",     email: "dat.pham@truecommerce.com",     role: "Data Analyst",          dept: "Data Department",        initials: "DP", color: "av-4" },
-        { name: "Thao Vo",      email: "thao.vo@truecommerce.com",      role: "HR Business Partner",   dept: "HR Department",          initials: "TV", color: "av-5" },
-        { name: "Khoa Bui",     email: "khoa.bui@truecommerce.com",     role: "Finance Executive",     dept: "Finance Department",     initials: "KB", color: "av-6" },
-        { name: "Nhi Do",       email: "nhi.do@truecommerce.com",       role: "Customer Success",      dept: "Customer Success Dept",  initials: "ND", color: "av-7" }
+        { name: "Cuong Truong",  email: "cuong.truong@truecommerce.com",  role: "Sr Software Engineer",     dept: "Product Development",     initials: "CT", color: "av-1" },
+        { name: "Duc Nguyen",    email: "Duc.Nguyen@truecommerce.com",    role: "Sr System Operation Eng",  dept: "System Monitoring",       initials: "DN", color: "av-2" },
+        { name: "Keelin Phan",   email: "Keelin.Phan@truecommerce.com",   role: "Implementation Spec II",   dept: "Svcs Implementations",    initials: "KP", color: "av-3" },
+        { name: "Linh Hoang",    email: "Linh.Hoang@truecommerce.com",    role: "Integration Spec III",     dept: "Services Integrations",   initials: "LH", color: "av-4" },
+        { name: "Quynh Vo",      email: "quynh.vo@truecommerce.com",      role: "HR Business Partner",      dept: "People Team",             initials: "QV", color: "av-5" },
+        { name: "Rachel Nguyen", email: "rachel.nguyen@truecommerce.com", role: "Serv Desk Conslt II",      dept: "Technical Support",       initials: "RN", color: "av-6" },
+        { name: "Lucy Pham",     email: "lucy.pham@truecommerce.com",     role: "Technical Support I",      dept: "Technical Support",       initials: "LP", color: "av-7" }
       ],
       "Q2 2026": [],
       "Q3 2026": [],
       "Q4 2026": [],
-      // 2025 — Top Talent only (no Top Mover for 2025). Q1 2025 không có data nên skip.
-      "Q2 2025": [],
-      "Q3 2025": [],
-      "Q4 2025": []
+      // ────── 2025 ──────
+      "Q2 2025": [
+        { name: "Thanh Lu",    email: "Thanh.Lu@truecommerce.com",    role: "Software Engineer II",      dept: "Product Development",     initials: "TL", color: "av-1" },
+        { name: "Hien Le",     email: "Hien.Le@truecommerce.com",     role: "Integration Spec III",      dept: "Services Integrations",   initials: "HL", color: "av-2" },
+        { name: "Diep Tran",   email: "Diep.Tran@truecommerce.com",   role: "Mapping Spec III",          dept: "Services Integrations",   initials: "DT", color: "av-3" },
+        { name: "Emily Vu",    email: "emily.vu@truecommerce.com",    role: "Implementation Spec II",    dept: "Services Add On",         initials: "EV", color: "av-4" },
+        { name: "Brie Pham",   email: "brie.pham@truecommerce.com",   role: "Implementation Spec I",     dept: "Svcs Implementations",    initials: "BP", color: "av-5" },
+        { name: "Alice Uong",  email: "alice.uong@truecommerce.com",  role: "Serv Desk Conslt I",        dept: "Technical Support",       initials: "AU", color: "av-6" },
+        { name: "Dieu Nguyen", email: "Dieu.Nguyen@truecommerce.com", role: "System Operation Engineer", dept: "IT",                      initials: "DN", color: "av-7" }
+      ],
+      "Q3 2025": [
+        { name: "Cuong Luong",   email: "Cuong.Luong@truecommerce.com",   role: "Sr Database Administrator", dept: "Product Development",   initials: "CL", color: "av-1" },
+        { name: "Thong Pham",    email: "Thong.Pham@truecommerce.com",    role: "Sr Software Engineer",      dept: "Product Development",   initials: "TP", color: "av-2" },
+        { name: "Jade Tran",     email: "Jade.Tran@truecommerce.com",     role: "Implementation Spec II",    dept: "Services Add On",       initials: "JT", color: "av-3" },
+        { name: "Tiffany Tieu",  email: "Tiffany.Tieu@truecommerce.com",  role: "Serv Desk Conslt II",       dept: "Technical Support",     initials: "TT", color: "av-4" },
+        { name: "Melanie Luong", email: "melanie.luong@truecommerce.com", role: "Trading Partner Spec II",   dept: "Support Connections",   initials: "ML", color: "av-5" },
+        { name: "Viet Tran",     email: "viet.h.tran@truecommerce.com",   role: "",                          dept: "",                      initials: "VT", color: "av-6" }
+      ],
+      "Q4 2025": [
+        { name: "Lam Nguyen",    email: "Lam.H.Nguyen@truecommerce.com", role: "Prin Software Engineer",    dept: "Product Development",                    initials: "LN", color: "av-1" },
+        { name: "Duy Nguyen",    email: "Duy.T.Nguyen@truecommerce.com", role: "Mgr, Mapping",              dept: "TP Mapping",                             initials: "DN", color: "av-2" },
+        { name: "Suong Tran",    email: "Suong.Tran@truecommerce.com",   role: "C&B Specialist",            dept: "People Team",                            initials: "ST", color: "av-3" },
+        { name: "Thanh Nguyen",  email: "Thanh.Nguyen@truecommerce.com", role: "System Operation Engineer", dept: "System Monitoring",                      initials: "TN", color: "av-4" },
+        { name: "Anna Nguyen",   email: "Anna.Nguyen@truecommerce.com",  role: "Implementation Spec II",    dept: "Svcs Implementations",                   initials: "AN", color: "av-5" },
+        { name: "Dustin Nguyen", email: "dustin.nguyen@truecommerce.com",role: "Trading Partner Spec I",    dept: "Technical Support",                      initials: "DN", color: "av-6" },
+        { name: "Rin Nguyen",    email: "rin.nguyen@truecommerce.com",   role: "Implementation Conslt",     dept: "Services Add On",                        initials: "RN", color: "av-7" },
+        { name: "Khai Nguyen",   email: "Khai.Nguyen@truecommerce.com",  role: "Integration Mapping Spec",  dept: "Professional Services - TrueAuto",       initials: "KN", color: "av-8" }
+      ]
     }
   },
 
@@ -515,10 +548,10 @@ const VALUE_ICONS = ['magnifyPerson', 'targetArrow', 'handsJoin', 'mindSpark', '
 const PROF_ICONS  = ['smile', 'star', 'star'];
 
 // --- Hero ---
-document.getElementById('hero-pill').textContent         = RECOGNITION_DATA.hero.pill;
-document.getElementById('hero-title-main').textContent   = RECOGNITION_DATA.hero.title;
-document.getElementById('hero-title-accent').textContent = RECOGNITION_DATA.hero.titleAccent;
-document.getElementById('hero-desc').textContent         = RECOGNITION_DATA.hero.description;
+document.getElementById('hero-pill').textContent        = RECOGNITION_DATA.hero.pill;
+document.getElementById('hero-title-line1').textContent = RECOGNITION_DATA.hero.titleLine1;
+document.getElementById('hero-title-line2').textContent = RECOGNITION_DATA.hero.titleLine2;
+document.getElementById('hero-desc').textContent        = RECOGNITION_DATA.hero.description;
 
 // --- Section header helper ---
 function renderRewards(elId, rewards) {
