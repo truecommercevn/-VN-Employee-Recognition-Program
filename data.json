@@ -245,8 +245,8 @@
           "dept": "Quality Assurance",
           "initials": "NV",
           "color": "av-1",
-          "value": "Customers Drive Our Purposes",
-          "valueClass": "tag-own",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
           "desc": "Nam T Vu consistently demonstrates a customer-first mindset by ensuring quality delivery, proactively identifying risks, and supporting teammates to drive successful customer outcomes."
         },
         {
@@ -256,8 +256,8 @@
           "dept": "Support Connections",
           "initials": "KC",
           "color": "av-2",
-          "value": "Customers Drive Our Purposes",
-          "valueClass": "tag-own",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
           "desc": "Kathy is recognized for her flexibility and strong performance across B2B and CIP, consistently delivering quality results and supporting business operations effectively."
         },
         {
@@ -267,8 +267,8 @@
           "dept": "Technical Support",
           "initials": "CH",
           "color": "av-3",
-          "value": "Customers Drive Our Purposes",
-          "valueClass": "tag-own",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
           "desc": "Chloe exemplifies Customer First through proactive ownership of customer escalations, effective issue resolution, and ongoing support for both customers and teammates."
         }
       ]
