@@ -28,6 +28,8 @@
     --tag-inn-c: #b45000;
     --tag-cus: #fce4f6;
     --tag-cus-c: #8b1a7e;
+    --tag-adp: #f0e7ff;
+    --tag-adp-c: #5b3a9e;
     --radius: 12px;
     --shadow: 0 2px 16px rgba(10,31,68,.08);
     --shadow-lg: 0 8px 32px rgba(10,31,68,.13);
@@ -143,6 +145,7 @@
   .tag-col { background: var(--tag-col); color: var(--tag-col-c); }
   .tag-inn { background: var(--tag-inn); color: var(--tag-inn-c); }
   .tag-cus { background: var(--tag-cus); color: var(--tag-cus-c); }
+  .tag-adp { background: var(--tag-adp); color: var(--tag-adp-c); }
   .mover-desc { font-size: .78rem; color: #4b5563; line-height: 1.55; }
 
   .values-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
@@ -275,16 +278,13 @@
     <div class="tabs" id="mover-tabs"></div>
     <div class="values-bar">
       <span class="values-label">Core values:</span>
-      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Ownership</span>
-      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Collaboration</span>
-      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M12 2a7 7 0 00-7 7c0 2.4 1.2 4.5 3 5.7V17h8v-2.3c1.8-1.2 3-3.3 3-5.7a7 7 0 00-7-7z"/></svg> Innovation</span>
-      <span class="val-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Customer Focus</span>
+      <span class="val-chip">Customer Drives Our Purpose</span>
+      <span class="val-chip">Ownership + Impact</span>
+      <span class="val-chip">Win Together</span>
+      <span class="val-chip">Adapt + Empower</span>
+      <span class="val-chip">Relentless Innovation</span>
     </div>
     <div class="mover-grid" id="mover-grid"></div>
-    <div class="note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-      <span id="mover-note"></span>
-    </div>
   </div>
 
   <!-- OUR VALUES -->
@@ -450,7 +450,7 @@ const RECOGNITION_DATA = {
   topMover: {
     title: "Top Mover",
     description: "Celebrating employees who exemplify our core values through impactful actions and meaningful contributions each month.",
-    note: "4 winners are selected each month based on the highlighted values.",
+    note: "",
     rewards: [
       { amount: "700,000 VND", label: "bonus",         icon: "money" },
       { amount: "Company",     label: "branded gifts", icon: "gift"  }
@@ -566,7 +566,6 @@ document.getElementById('talent-note').textContent  = RECOGNITION_DATA.topTalent
 // --- Top Mover ---
 document.getElementById('mover-title').textContent = RECOGNITION_DATA.topMover.title;
 document.getElementById('mover-desc').textContent  = RECOGNITION_DATA.topMover.description;
-document.getElementById('mover-note').textContent  = RECOGNITION_DATA.topMover.note;
 renderRewards('mover-rewards', RECOGNITION_DATA.topMover.rewards);
 
 // --- Our Values ---
