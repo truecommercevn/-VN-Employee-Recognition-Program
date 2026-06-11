@@ -1,0 +1,277 @@
+{
+  "topTalent": {
+    "periods": {
+      "Q1 2026": [
+        {
+          "name": "Cuong Truong",
+          "email": "cuong.truong@truecommerce.com",
+          "role": "Sr Software Engineer",
+          "dept": "Product Development",
+          "initials": "CT",
+          "color": "av-1"
+        },
+        {
+          "name": "Duc Nguyen",
+          "email": "Duc.Nguyen@truecommerce.com",
+          "role": "Sr System Operation Eng",
+          "dept": "System Monitoring",
+          "initials": "DN",
+          "color": "av-2"
+        },
+        {
+          "name": "Keelin Phan",
+          "email": "Keelin.Phan@Truecommerce.com",
+          "role": "Implementation Spec II",
+          "dept": "Svcs Implementations",
+          "initials": "KP",
+          "color": "av-3"
+        },
+        {
+          "name": "Linh Hoang",
+          "email": "Linh.Hoang@truecommerce.com",
+          "role": "Integration Spec III",
+          "dept": "Services Integrations",
+          "initials": "LH",
+          "color": "av-4"
+        },
+        {
+          "name": "Quynh Vo",
+          "email": "quynh.vo@truecommerce.com",
+          "role": "HR Business Partner",
+          "dept": "People Team",
+          "initials": "QV",
+          "color": "av-5"
+        },
+        {
+          "name": "Rachel Nguyen",
+          "email": "rachel.nguyen@truecommerce.com",
+          "role": "Serv Desk Conslt II",
+          "dept": "Technical Support",
+          "initials": "RN",
+          "color": "av-6"
+        },
+        {
+          "name": "Lucy Pham",
+          "email": "lucy.pham@truecommerce.com",
+          "role": "Technical Support II",
+          "dept": "Technical Support",
+          "initials": "LP",
+          "color": "av-7"
+        }
+      ],
+      "Q2 2025": [
+        {
+          "name": "Thanh Lu",
+          "email": "Thanh.Lu@truecommerce.com",
+          "role": "Software Engineer II",
+          "dept": "Product Development",
+          "initials": "TL",
+          "color": "av-1"
+        },
+        {
+          "name": "Hien Le",
+          "email": "Hien.Le@truecommerce.com",
+          "role": "Integration Spec III",
+          "dept": "Services Integrations",
+          "initials": "HL",
+          "color": "av-2"
+        },
+        {
+          "name": "Diep Tran",
+          "email": "Diep.Tran@truecommerce.com",
+          "role": "Mapping Spec III",
+          "dept": "Services Integrations",
+          "initials": "DT",
+          "color": "av-3"
+        },
+        {
+          "name": "Emily Vu",
+          "email": "emily.vu@truecommerce.com",
+          "role": "Implementation Spec II",
+          "dept": "Services Add On",
+          "initials": "EV",
+          "color": "av-4"
+        },
+        {
+          "name": "Brie Pham",
+          "email": "brie.pham@truecommerce.com",
+          "role": "Implementation Spec I",
+          "dept": "Svcs Implementations",
+          "initials": "BP",
+          "color": "av-5"
+        },
+        {
+          "name": "Alice Uong",
+          "email": "alice.uong@truecommerce.com",
+          "role": "Serv Desk Conslt I",
+          "dept": "Technical Support",
+          "initials": "AU",
+          "color": "av-6"
+        },
+        {
+          "name": "Dieu Nguyen",
+          "email": "Dieu.Nguyen@truecommerce.com",
+          "role": "System Operation Engineer",
+          "dept": "IT",
+          "initials": "DN",
+          "color": "av-7"
+        }
+      ],
+      "Q3 2025": [
+        {
+          "name": "Cuong Luong",
+          "email": "Cuong.Luong@truecommerce.com",
+          "role": "Sr Database Administrator",
+          "dept": "Product Development",
+          "initials": "CL",
+          "color": "av-1"
+        },
+        {
+          "name": "Thong Pham",
+          "email": "Thong.Pham@truecommerce.com",
+          "role": "Sr Software Engineer",
+          "dept": "Product Development",
+          "initials": "TP",
+          "color": "av-2"
+        },
+        {
+          "name": "Jade Tran",
+          "email": "Jade.Tran@truecommerce.com",
+          "role": "Implementation Spec II",
+          "dept": "Services Add On",
+          "initials": "JT",
+          "color": "av-3"
+        },
+        {
+          "name": "Tiffany Tieu",
+          "email": "Tiffany.Tieu@truecommerce.com",
+          "role": "Serv Desk Conslt II",
+          "dept": "Technical Support",
+          "initials": "TT",
+          "color": "av-4"
+        },
+        {
+          "name": "Melanie Luong",
+          "email": "melanie.luong@truecommerce.com",
+          "role": "Trading Partner Spec II",
+          "dept": "Support Connections",
+          "initials": "ML",
+          "color": "av-5"
+        },
+        {
+          "name": "Viet H Tran",
+          "email": "viet.h.tran@truecommerce.com",
+          "role": "",
+          "dept": "",
+          "initials": "VT",
+          "color": "av-6"
+        }
+      ],
+      "Q4 2025": [
+        {
+          "name": "Lam H Nguyen",
+          "email": "Lam.H.Nguyen@Truecommerce.com",
+          "role": "Prin Software Engineer",
+          "dept": "Product Development",
+          "initials": "LN",
+          "color": "av-1"
+        },
+        {
+          "name": "Duy T Nguyen",
+          "email": "Duy.T.Nguyen@Truecommerce.com",
+          "role": "Mgr, Mapping",
+          "dept": "TP Mapping",
+          "initials": "DN",
+          "color": "av-2"
+        },
+        {
+          "name": "Suong Tran",
+          "email": "Suong.Tran@truecommerce.com",
+          "role": "C&B Specialist",
+          "dept": "People Team",
+          "initials": "ST",
+          "color": "av-3"
+        },
+        {
+          "name": "Thanh Nguyen",
+          "email": "Thanh.Nguyen@truecommerce.com",
+          "role": "System Operation Engineer",
+          "dept": "System Monitoring",
+          "initials": "TN",
+          "color": "av-4"
+        },
+        {
+          "name": "Anna Nguyen",
+          "email": "Anna.Nguyen@truecommerce.com",
+          "role": "Implementation Spec II",
+          "dept": "Svcs Implementations",
+          "initials": "AN",
+          "color": "av-5"
+        },
+        {
+          "name": "Dustin Nguyen",
+          "email": "dustin.nguyen@truecommerce.com",
+          "role": "Trading Partner Spec I",
+          "dept": "Technical Support",
+          "initials": "DN",
+          "color": "av-6"
+        },
+        {
+          "name": "Rin Nguyen",
+          "email": "rin.nguyen@truecommerce.com",
+          "role": "Implementation Conslt",
+          "dept": "Services Add On",
+          "initials": "RN",
+          "color": "av-7"
+        },
+        {
+          "name": "Khai Nguyen",
+          "email": "Khai.Nguyen@truecommerce.com",
+          "role": "Integration Mapping Spec",
+          "dept": "Professional Services - TrueAuto",
+          "initials": "KN",
+          "color": "av-8"
+        }
+      ]
+    }
+  },
+  "topMover": {
+    "periods": {
+      "May 2026": [
+        {
+          "name": "Nam T Vu",
+          "email": "nam.t.vu@truecommerce.com",
+          "role": "QA Engineer I",
+          "dept": "Quality Assurance",
+          "initials": "NV",
+          "color": "av-1",
+          "value": "Customers Drive Our Purposes",
+          "valueClass": "tag-own",
+          "desc": "Nam T Vu consistently demonstrates a customer-first mindset by ensuring quality delivery, proactively identifying risks, and supporting teammates to drive successful customer outcomes."
+        },
+        {
+          "name": "Kathy Cao",
+          "email": "Kathy.Cao@truecommerce.com",
+          "role": "Implementation Spec I",
+          "dept": "Support Connections",
+          "initials": "KC",
+          "color": "av-2",
+          "value": "Customers Drive Our Purposes",
+          "valueClass": "tag-own",
+          "desc": "Kathy is recognized for her flexibility and strong performance across B2B and CIP, consistently delivering quality results and supporting business operations effectively."
+        },
+        {
+          "name": "Chloe Huynh",
+          "email": "chloe.huynh@truecommerce.com",
+          "role": "Technical Support II",
+          "dept": "Technical Support",
+          "initials": "CH",
+          "color": "av-3",
+          "value": "Customers Drive Our Purposes",
+          "valueClass": "tag-own",
+          "desc": "Chloe exemplifies Customer First through proactive ownership of customer escalations, effective issue resolution, and ongoing support for both customers and teammates."
+        }
+      ]
+    }
+  }
+}
