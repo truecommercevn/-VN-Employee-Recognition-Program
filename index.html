@@ -736,9 +736,28 @@ function renderYearTabs() {
   return years[0]; // most recent year, used for initial view
 }
 
-// --- Initial render: show the most recent year by default ---
-const initialYear = renderYearTabs();
-setActiveYear(initialYear);
+// --- Initial render: try fetch data.json first (auto-sync from SharePoint Excel), then render ---
+(async function init() {
+  try {
+    const res = await fetch('data.json', { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.topTalent && data.topTalent.periods) {
+        RECOGNITION_DATA.topTalent.periods = data.topTalent.periods;
+      }
+      if (data.topMover && data.topMover.periods) {
+        RECOGNITION_DATA.topMover.periods = data.topMover.periods;
+      }
+      console.log('[Recognition] Loaded data.json from auto-sync');
+    } else {
+      console.warn('[Recognition] data.json not found (status ' + res.status + '), using hardcoded data');
+    }
+  } catch (e) {
+    console.warn('[Recognition] Failed to fetch data.json, using hardcoded fallback:', e);
+  }
+  const initialYear = renderYearTabs();
+  setActiveYear(initialYear);
+})();
 </script>
 </body>
 </html>
