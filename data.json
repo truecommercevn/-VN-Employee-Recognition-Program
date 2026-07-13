@@ -1,6 +1,56 @@
 {
   "topTalent": {
     "periods": {
+      "Q2 2026": [
+        {
+          "name": "Lin Thieu",
+          "email": "Lin.Thieu@truecommerce.com",
+          "role": "Serv Desk Conslt III",
+          "dept": "Technical Support",
+          "initials": "LT",
+          "color": "av-1"
+        },
+        {
+          "name": "Rin Nguyen",
+          "email": "rin.nguyen@truecommerce.com",
+          "role": "Sr Implementation Conslt",
+          "dept": "Services Add On",
+          "initials": "RN",
+          "color": "av-2"
+        },
+        {
+          "name": "Khieu Truong",
+          "email": "Khieu.Truong@truecommerce.com",
+          "role": "System Operation Engineer",
+          "dept": "System Monitoring",
+          "initials": "KT",
+          "color": "av-3"
+        },
+        {
+          "name": "Diep Tran",
+          "email": "Diep.Tran@truecommerce.com",
+          "role": "Mapping Spec III",
+          "dept": "Services Integrations",
+          "initials": "DT",
+          "color": "av-4"
+        },
+        {
+          "name": "Phuc D Trinh",
+          "email": "Phuc.D.Trinh@truecommerce.com",
+          "role": "Sr Software Engineer",
+          "dept": "Product Development",
+          "initials": "PT",
+          "color": "av-5"
+        },
+        {
+          "name": "Natalya Nguyen",
+          "email": "natalya.nguyen@truecommerce.com",
+          "role": "Integration Support II",
+          "dept": "Integration Support",
+          "initials": "NN",
+          "color": "av-6"
+        }
+      ],
       "Q1 2026": [
         {
           "name": "Cuong Truong",
@@ -45,7 +95,7 @@
         {
           "name": "Rachel Nguyen",
           "email": "rachel.nguyen@truecommerce.com",
-          "role": "Serv Desk Conslt II",
+          "role": "Serv Desk Conslt III",
           "dept": "Technical Support",
           "initials": "RN",
           "color": "av-6"
@@ -85,11 +135,11 @@
           "color": "av-3"
         },
         {
-          "name": "Emily Vu",
-          "email": "emily.vu@truecommerce.com",
-          "role": "Implementation Spec II",
-          "dept": "Services Add On",
-          "initials": "EV",
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
           "color": "av-4"
         },
         {
@@ -137,7 +187,7 @@
         {
           "name": "Jade Tran",
           "email": "Jade.Tran@truecommerce.com",
-          "role": "Implementation Spec II",
+          "role": "Implementation Spec III",
           "dept": "Services Add On",
           "initials": "JT",
           "color": "av-3"
@@ -219,7 +269,7 @@
         {
           "name": "Rin Nguyen",
           "email": "rin.nguyen@truecommerce.com",
-          "role": "Implementation Conslt",
+          "role": "Sr Implementation Conslt",
           "dept": "Services Add On",
           "initials": "RN",
           "color": "av-7"
