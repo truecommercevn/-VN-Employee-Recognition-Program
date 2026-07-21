@@ -322,8 +322,76 @@
           "desc": "Chloe exemplifies Customer First through proactive ownership of customer escalations, effective issue resolution, and ongoing support for both customers and teammates."
         }
       ],
-      "Jun 2026": [],
-      "Jul 2026": []
+      "Jun 2026": [
+        {
+          "name": "Marcus Nguyen",
+          "email": "marcus.nguyen@truecommerce.com",
+          "role": "Integration Spec I",
+          "dept": "Services Integrations",
+          "initials": "MN",
+          "color": "av-1",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": "Marcus Nguyen for June Top Mover for exemplifying our company value of Ownership + Impact. Marcus took ownership of four Tier 3 integration projects, proactively partnering with the Implementation team to drive successful outcomes. His dedication and customer-first mindset resulted in a perfect 10/10 survey score as well as good customer feedback. Marcus’s accountability, initiative, and measurable impact make him highly deserving of this recognition."
+        },
+        {
+          "name": "Thuan V Vo",
+          "email": "Thuan.V.Vo@truecommerce.com",
+          "role": "Sr Software Engineer II",
+          "dept": "Product Development",
+          "initials": "TV",
+          "color": "av-2",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": "Thuan exemplified Ownership + Impact by proactively stepping in to support the Atlas MX project during a critical period while the primary developer was on PTO. Taking ownership of urgent customer issues, he collaborated closely with the Atlas MX team to ensure commitments were delivered seamlessly and without disruption. His initiative, accountability, and willingness to go beyond his core responsibilities helped minimize customer impact and demonstrated a strong commitment to our customers and team success."
+        },
+        {
+          "name": "Francisco Nguyen",
+          "email": "francisco.nguyen@truecommerce.com",
+          "role": "Integration Support II",
+          "dept": "Integration Support",
+          "initials": "FN",
+          "color": "av-3",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        }
+      ],
+      "Jul 2026": [
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-1",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-2",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-3",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        }
+      ]
     }
   }
 }
