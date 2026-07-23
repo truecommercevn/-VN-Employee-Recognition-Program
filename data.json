@@ -322,9 +322,9 @@
           "dept": "Services Integrations",
           "initials": "MN",
           "color": "av-1",
-          "value": "",
+          "value": "Ownership + Impact",
           "valueClass": "tag-own",
-          "desc": "Marcus took ownership of four Tier 3 integration projects, proactively partnering with the Implementation team to drive successful outcomes. His dedication and customer-first mindset resulted in a perfect 10/10 survey score and glowing customer feedback."
+          "desc": "Marcus Nguyen took ownership of four Tier 3 integration projects, proactively partnering with the Implementation team to drive successful outcomes. His dedication and customer-first mindset resulted in a perfect 10/10 survey score and glowing customer feedback."
         },
         {
           "name": "Thuan V Vo",
@@ -333,9 +333,9 @@
           "dept": "Product Development",
           "initials": "TV",
           "color": "av-2",
-          "value": "",
+          "value": "Ownership + Impact",
           "valueClass": "tag-own",
-          "desc": "Thuan stepped in to support the Atlas MX project during a critical period, taking ownership of urgent customer issues and collaborating closely with the team to ensure commitments were delivered seamlessly without disruption."
+          "desc": "Thuan Vo stepped in to support the Atlas MX project during a critical period, taking ownership of urgent customer issues and collaborating closely with the team to ensure commitments were delivered seamlessly without disruption."
         },
         {
           "name": "Francisco Nguyen",
@@ -344,9 +344,9 @@
           "dept": "Integration Support",
           "initials": "FN",
           "color": "av-3",
-          "value": "",
+          "value": "Ownership + Impact",
           "valueClass": "tag-own",
-          "desc": "Francisco led the team to adopt the map approval process, strengthening accountability and consistency. He also stepped up to support Helios' role transition by quickly learning the Alligacom EIS add-on and ensuring cases moved forward with minimal disruption."
+          "desc": "Francisco Nguyen led the team to adopt the map approval process, strengthening accountability and consistency. He also stepped up to support Helios' role transition by quickly learning the Alligacom EIS add-on and ensuring cases moved forward with minimal disruption."
         }
       ]
     }
