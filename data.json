@@ -1,6 +1,56 @@
 {
   "topTalent": {
     "periods": {
+      "Q3 2026": [
+        {
+          "name": "Quynh Vo",
+          "email": "quynh.vo@truecommerce.com",
+          "role": "HR Business Partner",
+          "dept": "People Team",
+          "initials": "QV",
+          "color": "av-1"
+        },
+        {
+          "name": "Anh N Nguyen",
+          "email": "anh.n.nguyen@truecommerce.com",
+          "role": "HR Director",
+          "dept": "People Team",
+          "initials": "AN",
+          "color": "av-2"
+        },
+        {
+          "name": "Nghi Tran",
+          "email": "nghi.tran@truecommerce.com",
+          "role": "Talent Acquisition Spec",
+          "dept": "People Team",
+          "initials": "NT",
+          "color": "av-3"
+        },
+        {
+          "name": "Suong Tran",
+          "email": "Suong.Tran@truecommerce.com",
+          "role": "C&B Specialist",
+          "dept": "People Team",
+          "initials": "ST",
+          "color": "av-4"
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-5"
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-6"
+        }
+      ],
       "Q2 2026": [
         {
           "name": "Lin Thieu",
