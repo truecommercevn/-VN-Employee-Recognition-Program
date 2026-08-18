@@ -1,56 +1,6 @@
 {
   "topTalent": {
     "periods": {
-      "Q3 2026": [
-        {
-          "name": "Quynh Vo",
-          "email": "quynh.vo@truecommerce.com",
-          "role": "HR Business Partner",
-          "dept": "People Team",
-          "initials": "QV",
-          "color": "av-1"
-        },
-        {
-          "name": "Anh N Nguyen",
-          "email": "anh.n.nguyen@truecommerce.com",
-          "role": "HR Director",
-          "dept": "People Team",
-          "initials": "AN",
-          "color": "av-2"
-        },
-        {
-          "name": "Nghi Tran",
-          "email": "nghi.tran@truecommerce.com",
-          "role": "Talent Acquisition Spec",
-          "dept": "People Team",
-          "initials": "NT",
-          "color": "av-3"
-        },
-        {
-          "name": "Suong Tran",
-          "email": "Suong.Tran@truecommerce.com",
-          "role": "C&B Specialist",
-          "dept": "People Team",
-          "initials": "ST",
-          "color": "av-4"
-        },
-        {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
-          "color": "av-5"
-        },
-        {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
-          "color": "av-6"
-        }
-      ],
       "Q2 2026": [
         {
           "name": "Lin Thieu",
@@ -121,7 +71,7 @@
         {
           "name": "Keelin Phan",
           "email": "Keelin.Phan@Truecommerce.com",
-          "role": "Implementation Spec II",
+          "role": "Implementation Spec III",
           "dept": "Svcs Implementations",
           "initials": "KP",
           "color": "av-3"
@@ -171,8 +121,8 @@
         {
           "name": "Hien Le",
           "email": "Hien.Le@truecommerce.com",
-          "role": "Integration Spec III",
-          "dept": "Services Integrations",
+          "role": "Integration Support II",
+          "dept": "Integration Support",
           "initials": "HL",
           "color": "av-2"
         },
@@ -187,17 +137,17 @@
         {
           "name": "Brie Pham",
           "email": "brie.pham@truecommerce.com",
-          "role": "Implementation Spec I",
+          "role": "Implementation Spec II",
           "dept": "Svcs Implementations",
           "initials": "BP",
           "color": "av-4"
         },
         {
-          "name": "Alice Uong",
-          "email": "alice.uong@truecommerce.com",
-          "role": "Serv Desk Conslt I",
-          "dept": "Technical Support",
-          "initials": "AU",
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
           "color": "av-5"
         },
         {
@@ -271,7 +221,7 @@
         {
           "name": "Duy T Nguyen",
           "email": "Duy.T.Nguyen@Truecommerce.com",
-          "role": "Mgr, Mapping",
+          "role": "Mgr Mapping",
           "dept": "TP Mapping",
           "initials": "DN",
           "color": "av-2"
