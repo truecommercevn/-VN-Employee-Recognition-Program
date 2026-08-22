@@ -278,6 +278,77 @@
     }
   },
   "topMover": {
-    "periods": {}
+    "periods": {
+      "May 2026": [
+        {
+          "name": "Nam T Vu",
+          "email": "nam.t.vu@truecommerce.com",
+          "role": "QA Engineer I",
+          "dept": "Quality Assurance",
+          "initials": "NV",
+          "color": "av-1",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Nam T Vu consistently demonstrates a customer-first mindset by ensuring quality delivery, proactively identifying risks, and supporting teammates to drive successful customer outcomes."
+        },
+        {
+          "name": "Kathy Cao",
+          "email": "Kathy.Cao@truecommerce.com",
+          "role": "Implementation Spec I",
+          "dept": "Support Connections",
+          "initials": "KC",
+          "color": "av-2",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Kathy is recognized for her flexibility and strong performance across B2B and CIP, consistently delivering quality results and supporting business operations effectively."
+        },
+        {
+          "name": "Chloe Huynh",
+          "email": "chloe.huynh@truecommerce.com",
+          "role": "Technical Support II",
+          "dept": "Technical Support",
+          "initials": "CH",
+          "color": "av-3",
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Chloe exemplifies Customer First through proactive ownership of customer escalations, effective issue resolution, and ongoing support for both customers and teammates."
+        }
+      ],
+      "Jun 2026": [
+        {
+          "name": "Marcus Nguyen",
+          "email": "marcus.nguyen@truecommerce.com",
+          "role": "Integration Spec I",
+          "dept": "Services Integrations",
+          "initials": "MN",
+          "color": "av-1",
+          "value": "Ownership + Impact",
+          "valueClass": "tag-own",
+          "desc": "Marcus Nguyen took ownership of four Tier 3 integration projects, proactively partnering with the Implementation team to drive successful outcomes. His dedication and customer-first mindset resulted in a perfect 10/10 survey score and glowing customer feedback."
+        },
+        {
+          "name": "Thuan V Vo",
+          "email": "Thuan.V.Vo@truecommerce.com",
+          "role": "Sr Software Engineer II",
+          "dept": "Product Development",
+          "initials": "TV",
+          "color": "av-2",
+          "value": "Ownership + Impact",
+          "valueClass": "tag-own",
+          "desc": "Thuan Vo stepped in to support the Atlas MX project during a critical period, taking ownership of urgent customer issues and collaborating closely with the team to ensure commitments were delivered seamlessly without disruption."
+        },
+        {
+          "name": "Francisco Nguyen",
+          "email": "francisco.nguyen@truecommerce.com",
+          "role": "Integration Support II",
+          "dept": "Integration Support",
+          "initials": "FN",
+          "color": "av-3",
+          "value": "Ownership + Impact",
+          "valueClass": "tag-own",
+          "desc": "Francisco Nguyen led the team to adopt the map approval process, strengthening accountability and consistency. He also stepped up to support Helios' role transition by quickly learning the Alligacom EIS add-on and ensuring cases moved forward with minimal disruption."
+        }
+      ]
+    }
   }
 }
