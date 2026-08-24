@@ -348,6 +348,41 @@
           "valueClass": "tag-own",
           "desc": "Francisco Nguyen led the team to adopt the map approval process, strengthening accountability and consistency. He also stepped up to support Helios' role transition by quickly learning the Alligacom EIS add-on and ensuring cases moved forward with minimal disruption."
         }
+      ],
+      "Jul 2026": [
+        {
+          "name": "Nga Ho",
+          "email": "nga.ho@truecommerce.com",
+          "role": "Integration Spec II",
+          "dept": "Services Integrations",
+          "initials": "NH",
+          "color": "av-1",
+          "value": "Win Together",
+          "valueClass": "tag-col",
+          "desc": "Amid major TC Platforms changes, Nga stepped up to lead Universal Adapter in Services — balancing her own tasks while training APAC and Global team members. She ensured product knowledge was shared and maintained across teams, platforms, and regions, embodying the true spirit of Win Together."
+        },
+        {
+          "name": "Hoan Khuc",
+          "email": "Hoan.Khuc@truecommerce.com",
+          "role": "QA Engineer I",
+          "dept": "Quality Assurance",
+          "initials": "HK",
+          "color": "av-2",
+          "value": "Win Together",
+          "valueClass": "tag-col",
+          "desc": "Hoan showed a strong willingness to learn, readily accepting knowledge transfer from experienced teammates and stepping up to help test protocols. His positive attitude, adaptability, and collaborative mindset ensured a smooth team transition and kept everyone moving forward together."
+        },
+        {
+          "name": "Asher Huynh",
+          "email": "asher.huynh@truecommerce.com",
+          "role": "Implementation Spec I",
+          "dept": "Services Add On",
+          "initials": "AH",
+          "color": "av-3",
+          "value": "Win Together",
+          "valueClass": "tag-col",
+          "desc": "Asher stepped in on a critical customer escalation outside her own assignment, collaborating with the NA team to resolve issues, restore confidence, and turn the situation around. She consistently coordinates across teams, follows up on dependencies, and ensures projects stay on track — always putting collective success first."
+        }
       ]
     }
   }
