@@ -383,6 +383,111 @@
           "valueClass": "tag-col",
           "desc": "Asher stepped in on a critical customer escalation outside her own assignment, collaborating with the NA team to resolve issues, restore confidence, and turn the situation around. She consistently coordinates across teams, follows up on dependencies, and ensures projects stay on track — always putting collective success first."
         }
+      ],
+      "Aug 2026": [
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-1",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-2",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-3",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        }
+      ],
+      "Sep 2026": [
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-1",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-2",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-3",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        }
+      ],
+      "Oct 2026": [
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-1",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-2",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        },
+        {
+          "name": "#N/A",
+          "email": "#N/A",
+          "role": "#N/A",
+          "dept": "#N/A",
+          "initials": "#N",
+          "color": "av-3",
+          "value": "",
+          "valueClass": "tag-own",
+          "desc": ""
+        }
       ]
     }
   }
