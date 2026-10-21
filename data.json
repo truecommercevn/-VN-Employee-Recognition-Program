@@ -305,7 +305,7 @@
         {
           "name": "Chloe Huynh",
           "email": "chloe.huynh@truecommerce.com",
-          "role": "Technical Support II",
+          "role": "Technical Support III",
           "dept": "Technical Support",
           "initials": "CH",
           "color": "av-3",
@@ -318,7 +318,7 @@
         {
           "name": "Marcus Nguyen",
           "email": "marcus.nguyen@truecommerce.com",
-          "role": "Integration Spec I",
+          "role": "Integration Spec II",
           "dept": "Services Integrations",
           "initials": "MN",
           "color": "av-1",
@@ -392,9 +392,9 @@
           "dept": "Product Development",
           "initials": "TL",
           "color": "av-1",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Adapt + Empower",
+          "valueClass": "tag-adp",
+          "desc": "Thanh implemented Shipment/Invoice Validation in TrueAuto and enabled APERAK generation with limited documentation and significant uncertainty. By proactively collaborating with his supervisor and iterating through multiple discussions, he delivered a reliable validation framework that improved customer visibility and reduced dependency on DiMetric."
         },
         {
           "name": "Scarlet Do",
@@ -403,9 +403,9 @@
           "dept": "Technical Support",
           "initials": "SD",
           "color": "av-2",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Adapt + Empower",
+          "valueClass": "tag-adp",
+          "desc": "Scarlet quickly adapted to a new team and product, building her knowledge and confidently taking on responsibilities across the phone line and Case Assignment team. She shows strong ownership of her development, supports new members, shares knowledge, and steps up to handle urgent cases when resources are limited"
         },
         {
           "name": "Liam Nguyen",
@@ -414,9 +414,9 @@
           "dept": "Integration Support",
           "initials": "LN",
           "color": "av-3",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Adapt + Empower",
+          "valueClass": "tag-adp",
+          "desc": "When weekend automation increased workload and impacted key operational metrics, Liam spoke up with valuable feedback that helped identify improvements to the workflow. His willingness to adapt, share observations, and collaborate on solutions made weekend operations more efficient for the entire regional support team."
         }
       ],
       "Sep 2026": [
@@ -427,9 +427,9 @@
           "dept": "System Monitoring",
           "initials": "NT",
           "color": "av-1",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Relentless Innovation",
+          "valueClass": "tag-inn",
+          "desc": "Nhan proposed improvements to the weekend reporting process, adding a validation approach that makes results faster to double-check and script issues easier to detect. He also contributed practical ideas for managing daily operational issues, supporting faster follow-up and response."
         },
         {
           "name": "Chester Le",
@@ -438,9 +438,9 @@
           "dept": "Services Add On",
           "initials": "CL",
           "color": "av-2",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Relentless Innovation",
+          "valueClass": "tag-inn",
+          "desc": "When a customer needed about 900 files retrieved from the Onetime hub, Chester built an AI-assisted automation instead of downloading each file manually. It eliminated hours of repetitive work, delivered the files without extra resources, and came with a user guide others can reuse."
         },
         {
           "name": "Trung Nguyen",
@@ -449,44 +449,9 @@
           "dept": "Product Development",
           "initials": "TN",
           "color": "av-3",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        }
-      ],
-      "Oct 2026": [
-        {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
-          "color": "av-1",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
-          "color": "av-2",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
-          "color": "av-3",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Relentless Innovation",
+          "valueClass": "tag-inn",
+          "desc": "On the Fusion project, Trung consistently seeks opportunities to improve solutions and streamline processes. His proactive, problem-solving approach has contributed significantly to the team, and leadership has noted his work, with Jakob Calsen sharing that Trung is doing a great job on Fusion."
         }
       ]
     }
