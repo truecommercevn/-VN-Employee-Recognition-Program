@@ -281,67 +281,12 @@
     "periods": {
       "Oct 2026": [
         {
-          "name": "Yunie Nguyen",
-          "email": "yunie.nguyen@truecommerce.com",
-          "role": "Technical Support I",
-          "dept": "Technical Support",
-          "initials": "YN",
-          "color": "av-1",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "Bruno Ly",
-          "email": "bruno.ly@truecommerce.com",
-          "role": "Implementation Support Sp",
-          "dept": "Svcs Implementations",
-          "initials": "BL",
-          "color": "av-2",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "Crystal Dnguyen",
-          "email": "crystal.dnguyen@Truecommerce.com",
-          "role": "Trading Partner Spec III",
-          "dept": "Support Connections",
-          "initials": "CD",
-          "color": "av-3",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "Thaila Truong",
-          "email": "thaila.truong@truecommerce.com",
-          "role": "Integration Support I",
-          "dept": "Integration Support",
-          "initials": "TT",
-          "color": "av-4",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
-          "name": "Tung T Tran",
-          "email": "Tung.T.Tran@truecommerce.com",
-          "role": "Sr System Administrator",
-          "dept": "Tech Ops",
-          "initials": "TT",
-          "color": "av-5",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
-        },
-        {
           "name": "Kevin Le",
           "email": "Kevin.Le@truecommerce.com",
           "role": "Sr Compliance Analyst",
           "dept": "Support Connections",
           "initials": "KL",
-          "color": "av-6",
+          "color": "av-1",
           "value": "",
           "valueClass": "tag-own",
           "desc": ""
@@ -352,7 +297,7 @@
           "role": "Sr Software Engineer",
           "dept": "Product Development",
           "initials": "PT",
-          "color": "av-7",
+          "color": "av-2",
           "value": "",
           "valueClass": "tag-own",
           "desc": ""
@@ -363,7 +308,7 @@
           "role": "Technical Support I",
           "dept": "Technical Support",
           "initials": "MS",
-          "color": "av-8",
+          "color": "av-3",
           "value": "",
           "valueClass": "tag-own",
           "desc": ""
