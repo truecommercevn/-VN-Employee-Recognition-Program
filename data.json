@@ -1,6 +1,48 @@
 {
   "topTalent": {
     "periods": {
+      "Q3 2026": [
+        {
+          "name": "Thaila Truong",
+          "email": "thaila.truong@truecommerce.com",
+          "role": "Integration Support I",
+          "dept": "Integration Support",
+          "initials": "TT",
+          "color": "av-1"
+        },
+        {
+          "name": "Bruno Ly",
+          "email": "bruno.ly@truecommerce.com",
+          "role": "Implementation Support Sp",
+          "dept": "Svcs Implementations",
+          "initials": "BL",
+          "color": "av-2"
+        },
+        {
+          "name": "Yunie Nguyen",
+          "email": "yunie.nguyen@truecommerce.com",
+          "role": "Technical Support I",
+          "dept": "Technical Support",
+          "initials": "YN",
+          "color": "av-3"
+        },
+        {
+          "name": "Crystal Dnguyen",
+          "email": "crystal.dnguyen@Truecommerce.com",
+          "role": "Trading Partner Spec III",
+          "dept": "Support Connections",
+          "initials": "CD",
+          "color": "av-4"
+        },
+        {
+          "name": "Tung T Tran",
+          "email": "Tung.T.Tran@truecommerce.com",
+          "role": "Sr System Administrator",
+          "dept": "Tech Ops",
+          "initials": "TT",
+          "color": "av-5"
+        }
+      ],
       "Q2 2026": [
         {
           "name": "Lin Thieu",
@@ -143,11 +185,11 @@
           "color": "av-4"
         },
         {
-          "name": "#N/A",
-          "email": "#N/A",
-          "role": "#N/A",
-          "dept": "#N/A",
-          "initials": "#N",
+          "name": "Alice Uong",
+          "email": "alice.uong@truecommerce.com",
+          "role": "Serv Desk Conslt I",
+          "dept": "Technical Support",
+          "initials": "AU",
           "color": "av-5"
         },
         {
@@ -287,9 +329,9 @@
           "dept": "Support Connections",
           "initials": "KL",
           "color": "av-1",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Kevin was the first to catch the DiCompliance security issue, flagging it right away and supporting the hotfix while keeping customer impact in view. He also kept the TTI and Skyjack project alive, escalating the EDI ID conflict and following up until a workaround was found. In both cases, he kept going until the customer was protected or had a path forward."
         },
         {
           "name": "Phuc D Trinh",
@@ -298,9 +340,9 @@
           "dept": "Product Development",
           "initials": "PT",
           "color": "av-2",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Phuc contributed to the new Vehicle Management feature in TrueAuto, an area where many details and workflows were still undefined. With limited upfront direction, he helped the team work through new requirements and make practical decisions, delivering a clearer, more reliable experience for customers managing their vehicle information."
         },
         {
           "name": "Miles Vu Son",
@@ -309,9 +351,9 @@
           "dept": "Technical Support",
           "initials": "MS",
           "color": "av-3",
-          "value": "",
-          "valueClass": "tag-own",
-          "desc": ""
+          "value": "Customer Drives Our Purpose",
+          "valueClass": "tag-cus",
+          "desc": "Miles puts the customer at the center of every decision, quickly mastering complex cases to deliver solutions that solve their problems. He adjusts his hours across US and Vietnam time zones so customers get uninterrupted support, and his high-quality phone interactions and case output exceed expectations."
         }
       ],
       "Sep 2026": [
